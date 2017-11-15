@@ -3,7 +3,8 @@
  */
 const sh = require('./greeter.js');
 import Vue from 'vue'
-import store from './vuex.js'
+import store from './vuex'
+console.log(store);
 
 new sh({
     type: 'ijjfund,ijjfifund,master,company,stock',
@@ -11,17 +12,28 @@ new sh({
     successCallback: ''
 });
 
-// store.commit('increment');
-
 function successCallback(data) {
     console.log(data);
 }
 
+console.log(store.state.b.name);
+store.dispatch('addAge');
+console.log(store.state.b.name);
+store.dispatch('increment');
+// store.commit('increment', {
+//     fund: { id: '000090', text: '民生加银家盈理财月度债券Ba', type: '货币型' }
+// });
+
 const SetCounter = {
-    template: `<div>{{ count }}</div>`,
+    template: `<a v-html="count"></a>`,
     computed: {
         count () {
-            return this.$store.state.count
+            var ar = this.$store.getters.doneTodos('货币型');
+            var str = '';
+            ar.forEach(v => {
+                str += v.text + '(' + v.id + ')<br/>';
+            });
+            return str;
         }
     }
 };
