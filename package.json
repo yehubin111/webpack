@@ -5,21 +5,34 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack",
-    "server": "webpack-dev-server --open"
+    "build": "webpack",
+    "dev": "webpack-dev-server --open"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "router": "^1.3.2",
+    "style-loader": "^0.19.0",
+    "vue-loader": "^13.5.0",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.9",
+    "vuex": "^3.0.1",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3"
   },
   "dependencies": {
     "commander": "^2.11.0",
+    "html-webpack-plugin": "^2.30.1",
     "vue": "^2.5.3",
     "vuex": "^3.0.1"
   }

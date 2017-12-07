@@ -1,0 +1,654 @@
+@charset "utf-8";
+/*reset*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button {
+  margin: 0;
+  padding: 0;
+}
+
+body, button, input, select, textarea {
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: arial, '\5FAE\8F6F\96C5\9ED1';
+  color: #333;
+}
+
+input, select, textarea {
+  font-size: 100%;
+  &:focus {
+    outline: none;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th {
+  text-align: inherit;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+iframe {
+  display: block;
+}
+
+abbr, acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+address, caption, cite, code, dfn, em, th, var {
+  font-style: normal;
+  font-weight: 500;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+caption, th {
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    outline: none;
+  }
+  &:hover {
+    outline: none;
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+@white: #fff;
+@gray-stepf3: #f3f3f3;
+@gray-stepf2: #f2f2f2;
+@gray-stepe6: #e6e6e6;
+@gray-stepd: #ddd;
+@gray-stepc: #ccc;
+@gray-stepb3: #b3b3b4;
+@gray-stepa: #aaa;
+@gray-step8: #888;
+@gray-step68: #68686a;
+@gray-step6: #666;
+@gray-step49: #494949;
+@gray-step43: #43464f;
+@gray-step3a: #3a3a3a;
+@gray-step3: #333;
+@black: #000;
+
+@blue-stepeb: #ebf0f5;
+@blue-stepbc: #bcd2ff;
+@blue-step73: #738ec6;
+@blue-step50: #5072b8;
+@blue-step4a: #4aafe9;
+@blue-step44: #4489ca;
+@blue-step45: #454951;
+@blue-step3a: #3a5a99;
+
+@pink-stepff: #ffe0de;
+
+@red-stepfff: #fff1f2;
+@red-stepffd: #ffdbde;
+@red-stepff7: #ff717c;
+@red-stepff: #ff4d5b;
+@red-stepfc: #fcf2f3;
+@red-stepe9: #e96563;
+@red-stepd9: #d93e3f;
+@red-stepcf: #cf0e0f;
+@red-stepc6: #c64745;
+@red-stepe6: #e6372a;
+@red-stepe4: #e42c2e;
+
+@yellow-stepff: #fff3d8;
+@yellow-stepfe: #fefad4;
+@yellow-stepffa: #fffab9;
+
+@green-step57: #57ab76;
+
+.f-red, .f-up {
+  color: @red-stepcf;
+}
+
+.f-down {
+  color: @green-step57;
+}
+
+.f-pink {
+  color: @red-stepff;
+}
+
+.f-link {
+  color: @blue-step44;
+}
+
+.f-hover {
+  color: @gray-step3;
+  &:hover {
+    color: @red-stepcf;
+  }
+}
+
+.f-redN {
+  color: @red-stepff;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #999;
+  font-weight: normal;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #999;
+  font-weight: normal;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #999;
+  font-weight: normal;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #999;
+  font-weight: normal;
+}
+
+
+@charset "utf-8";
+/*header*/
+.wrap {
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.myNav {
+    height: 30px;
+    background: #3b393c;
+    font-size: 12px;
+    line-height: 30px;
+    ul {
+        background: #3b393c;
+        li {
+            float: right;
+            width: 70px;
+            text-align: center;
+        }
+    }
+    a {
+        color: #fff;
+    }
+    .fLeft {
+        float: left;
+        text-align: left;
+    }
+}
+
+.introNav {
+    height: 70px;
+    background: #fff;
+    line-height: 70px;
+    font-size: 14px;
+    .icon {
+        position: absolute;
+        width: 119px;
+        height: 50px;
+        margin-top: 10px;
+        background: url(http://i.thsi.cn/images/ifund/home/3.0/fundlogo120.png) no-repeat 0 50%;
+    }
+    .fundicon {
+        position: absolute;
+        width: 120px;
+        height: 42px;
+        margin-top: 15px;
+        margin-left: 194px;
+        background: url(http://i.thsi.cn/images/ifund/home/3.0/fundlogo120.png) no-repeat 0 50%;
+    }
+    .topicon {
+        position: absolute;
+        width: 188px;
+        height: 60px;
+        background: url('//i.thsi.cn/images/ifund/ifundtg/topicon.jpg') no-repeat;
+    }
+    a {
+        color: #7c7c7c;
+    }
+    li {
+        float: right;
+        width: 80px;
+        text-align: center;
+    }
+}
+
+
+@charset "utf-8";
+.pt15 {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.footer {
+    width: 100%;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 22px;
+    min-width: 1000px;
+    a {
+        color: #666;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    .u-cut {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    p {
+        vertical-align: middle;
+        text-align: center;
+        color: #666;
+    }
+    .u-police_img {
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        _zoom: 1;
+        _display: inline;
+        background: url(//i.thsi.cn/images/ifund/home/3.0/policeicon.png) 0 0 no-repeat;
+    }
+    .footer-list{
+        height: 94px;
+        line-height: 18px;
+        text-align: center;
+        font-weight: bold;
+        overflow: hidden;
+        border-bottom: 1px solid #ddd;
+        li {
+            float: left;
+            width: 20%;
+            height: 84px;
+            &.nobd {
+                border: none;
+            }
+            .u-footer_img {
+                display: block;
+                height: 70px;
+                margin: 0 auto;
+                background: url(//i.thsi.cn/images/ifund/home/3.0/footer-icon.png) no-repeat;
+                &.footer-list_1 {
+                    width: 66px;
+                    background-position: 0 0;
+                    &:hover {
+                        background-position: 0 -94px;
+                    }
+                }
+                &.footer-list_2{
+                    width: 60px;
+                    background-position: -239px 0;
+                    &:hover {
+                        background-position: -239px -94px;
+                    }
+                }
+                &.footer-list_3 {
+                    width: 60px;
+                    background-position: -474px 0;
+                    &:hover {
+                        background-position: -474px -94px;
+                    }
+                }
+                &.footer-list_4 {
+                    width: 100px;
+                    background-position: -692px 0;
+                    &:hover {
+                        background-position: -692px -94px;
+                    }
+                }
+                &.footer-list_5 {
+                    width: 100px;
+                    background-position: -926px 0;
+                    &:hover {
+                        background-position: -926px -94px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+.footer-box {
+  width: 100%;
+  background-color: #f2f2f2;
+  .con {
+    width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+body {
+  background-color: #b91c33;
+}
+
+.topbanner {
+  width: 100%;
+  height: 432px;
+  display: block;
+  background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/topbanner.jpg) center 0 no-repeat;
+  .con {
+    width: 1000px;
+    margin: 0 auto;
+    height: 432px;
+    text-align: center;
+    overflow: hidden;
+    .golearn {
+      width: 215px;
+      height: 60px;
+      display: inline-block;
+      margin-top: 229px;
+      cursor: pointer;
+    }
+  }
+}
+
+.title1 {
+  width: 1000px;
+  margin: 49px auto 34px auto;
+  height: 59px;
+  background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/title1.png) center 0 no-repeat;
+}
+
+.buybox {
+  width: 1000px;
+  height: 292px;
+  margin: 0 auto 30px auto;
+  background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/getticket.png) center 0 no-repeat;
+  .btn {
+    width: 70px;
+    height: 116px;
+    display: block;
+    float: right;
+    margin-right: 104px;
+    font-size: 34px;
+    color: #d62740;
+    padding: 37px 63px 37px 47px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 58px;
+  }
+  &.cant {
+    background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/getticketoff.png) center 0 no-repeat;
+    .btn {
+      color: #888888;
+      cursor: inherit;
+    }
+  }
+}
+
+.infobox {
+  width: 1000px;
+  height: 507px;
+  margin: 0 auto 22px auto;
+  background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/box2.png) center 0 no-repeat;
+  overflow: hidden;
+  .sypercent {
+    color: #8d1123;
+    font-size: 42px;
+    margin-left: 269px;
+    margin-top: 161px;
+    margin-bottom: 55px;
+    display: inline-block;
+    outline: none;
+    -moz-outline: none;
+    &:focus{
+      outline: none;
+      -moz-outline: none;
+    }
+    span {
+      font-size: 70px;
+    }
+  }
+  .buybtn {
+    height: 68px;
+    text-align: center;
+    a {
+      width: 307px;
+      height: 68px;
+      display: inline-block;
+      background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/buy.png) 0 0 no-repeat;
+      cursor: pointer;
+      outline: none;
+      &:focus{
+        outline: none;
+        -moz-outline: none;
+      }
+    }
+  }
+}
+
+.award {
+  width: 1000px;
+  margin: 0 auto 20px auto;
+  height: 68px;
+  text-align: center;
+  .btn {
+    width: 307px;
+    display: inline-block;
+    cursor: pointer;
+    height: 68px;
+    background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/awardbutton.png) center 0 no-repeat;
+    outline: none;
+    &:focus{
+      outline: none;
+      -moz-outline: none;
+    }
+  }
+}
+
+.title2 {
+  width: 1000px;
+  margin: 0 auto 11px auto;
+  height: 69px;
+  background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/title2.png) center 0 no-repeat;
+}
+
+.tip{
+  width: 930px;
+  border-radius: 8px;
+  background-color: #fceae9;
+  padding: 55px 40px 30px 40px;
+  margin: 0 auto 20px auto;
+  color: #8d1123;
+  .title{
+    font-size: 28px;
+    margin-bottom: 13px;
+    font-weight: bold;
+  }
+  .stitle{
+    font-size: 26px;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+  .con{
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .mb50{
+    margin-bottom: 50px;
+  }
+}
+
+.shadow{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: .5;
+  filter: alpha(opacity=50);
+}
+
+.sybox{
+  width: 540px;
+  height: 670px;
+  background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/alertbox.png) center 0 no-repeat;
+  position: fixed;
+  left: 50%;
+  margin-left: -270px;
+  overflow: hidden;
+  top: 50%;
+  margin-top: -335px;
+  .title{
+    color: #8d1123;
+    font-size: 28px;
+    line-height: 110px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .sy{
+    line-height: 64px;
+    font-size: 28px;
+    color: #8d1123;
+    padding: 0 60px;
+    span{
+      color: #fe0;
+    }
+  }
+  .con{
+    font-size: 22px;
+    line-height: 30px;
+    color: #8d1123;
+    padding: 0 60px;
+    &.mb10{
+      margin-bottom: 30px;
+    }
+  }
+  .buyrecord{
+    line-height: 40px;
+    color: #fff;
+    padding: 0 0px 0 60px;
+    font-size: 20px;
+  }
+  .ok{
+    height: 80px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 80px;
+    text-align: center;
+    color: #fff;
+    font-size: 28px;
+    width: 100%;
+    border-top: 1px solid #bf4154;
+    cursor: pointer;
+  }
+  .gift{
+    width: 100%;
+    height: 251px;
+    display: block;
+    background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/alertbg.png) center 0 no-repeat;
+    margin-top: 107px;
+    margin-bottom: 59px;
+  }
+  .say{
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 48px;
+  }
+  .close{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 21px;
+    top: 38px;
+    background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/close.png) 0 0 no-repeat;
+  }
+  .result{
+    height: 200px;
+    overflow: hidden;
+  }
+}
+
+.learn{
+  width: 930px;
+  background-color: #fceae9;
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  position: fixed;
+  left: 50%;
+  margin-left: -465px;
+  top: 50%;
+  margin-top: -364px;
+  .title{
+    height: 100px;
+    background-color: #bf1e31;
+    background-image: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/title3.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .close{
+    width: 24px;
+    height: 24px;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/close.png) 0 0 no-repeat;
+    right: 40px;
+    top: 38px;
+  }
+  .con{
+    padding: 0 40px;
+    color: #8d1123;
+    .ttl{
+      font-size: 28px;
+      margin: 35px 0 20px 0;
+    }
+    .line{
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .pic{
+      height: 156px;
+      background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/boxpic.png) center 0 no-repeat;
+      margin-bottom: 37px;
+    }
+    .btn{
+      text-align: center;
+      margin-bottom: 20px;
+      span{
+        width: 381px;
+        height: 80px;
+        display: inline-block;
+        cursor: pointer;
+        background: url(//i.thsi.cn/images/ifund/home/ynew/awardagain/btn.png) 0 0 no-repeat;
+      }
+    }
+  }
+}
