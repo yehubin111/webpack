@@ -3,9 +3,6 @@
  */
 const path = require('path');
 const glob = require('glob');
-const ora = require('ora')
-const webpack = require('webpack');
-const chalk = require('chalk');
 const htmlwebpacklist = require('./build.config.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 提取entry中的JS 单独生成script标签调用到相应页面中
 const ExtractTextPlugin = require('extract-text-webpack-plugin'); // 按照entry中css的调用 提取生成相应文件 生成link标签调用到相应页面中
@@ -33,7 +30,8 @@ const webpackConfig = {
     devServer: {
         contentBase: "./dist", //本地服务器所加载的页面所在的目录
         historyApiFallback: true, //不跳转
-        inline: true //实时刷新
+        inline: true, //实时刷新
+        open: true
     },
     module: {
         // webpack babel 模块安装 npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react
@@ -106,28 +104,4 @@ const webpackConfig = {
     ].concat(htmlwebpacklist)
 }
 
-const spinner = ora('building for production...')
-spinner.start();
-
-webpack(webpackConfig, (err, stats) => {
-    spinner.stop()
-    if (err) throw err
-    process.stdout.write(stats.toString({
-      colors: true,
-      modules: false,
-      children: false,
-      chunks: false,
-      chunkModules: false
-    }) + '\n\n')
-
-    if (stats.hasErrors()) {
-      console.log(chalk.red('  Build failed with errors.\n'))
-      process.exit(1)
-    }
-
-    console.log(chalk.yellow('  Build complete.\n'));
-    console.log(
-      '  Tip: built files are meant to be served over an HTTP server.\n' +
-      '  Opening index.html over file:// won\'t work.\n'
-    )
-})
+module.exports = webpackConfig;
