@@ -1,6 +1,7 @@
 /**
  * Created by viruser on 2017/9/4.
  */
+ import '../css/common.less'
 import '../css/awardagain.less'
 
 $(function(){

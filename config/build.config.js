@@ -21,6 +21,14 @@ module.exports = (function(ar) {
 
     setForEach(ar, function(v, i) {
         setForEach(v, function(m, n) {
+            var chunklist = ((ck) => {
+                        var ar = [];
+                        ck.forEach((p) => {
+                            ar.push(i + '/js/' + p);
+                        })
+
+                        return ar;
+                    })(m);
             htmlAr.push(
                 new HtmlWebpackPlugin({
                     title: '',
@@ -28,14 +36,14 @@ module.exports = (function(ar) {
                     template: './src/' + i + '/' + n + '.html',
                     inject: 'body',
                     hash: true,
-                    chunks: ((ck) => {
-                        var ar = [];
-                        ck.forEach((p) => {
-                            ar.push(i + '/js/' + p);
-                        })
+                    chunks: chunklist,
+                    chunksSortMode: function(ck1,ck2){
+                        let chunk = chunklist;
+                        let ck1index = chunk.indexOf(ck1.names[0]);
+                        let ck2index = chunk.indexOf(ck2.names[0]);
 
-                        return ar;
-                    })(m)
+                        return ck1index - ck2index
+                    }
                     // minify: {  // html压缩
                     //     caseSensitive:false, //是否大小写敏感
                     //     removeComments:true, //去除注释
