@@ -3,7 +3,10 @@ module.exports = {
         'awardagain': ['index', 'func'],
         'detail': ['func']
     },
-    'test': {
-        'test': ['test']
+    'newyear': {
+        'newyear': ['newyear']
+    },
+    'lastyear': {
+        'lastyear': ['lastyear']
     }
-}
+};

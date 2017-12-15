@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // 提取entry中的JS 单独生成script标签调用到相应页面中
 const pagePath = './src/page';
 const htmlList = require('./base.config.js');
 

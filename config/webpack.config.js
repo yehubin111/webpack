@@ -5,7 +5,6 @@ const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
 const htmlwebpacklist = require('./build.config.js');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // 提取entry中的JS 单独生成script标签调用到相应页面中
 const ExtractTextPlugin = require('extract-text-webpack-plugin'); // 按照entry中css的调用 提取生成相应文件 生成link标签调用到相应页面中
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 编译之前先删除文件夹
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin'); // 压缩css，解决多个js调用同一个css重复问题
@@ -26,6 +25,7 @@ const webpackConfig = {
     entry: getEntry(path.resolve(__dirname, '../src/*/js/*.js')),
     output: {
         path: path.resolve(__dirname, '../dist'),
+        // publicPath: '../../',
         filename: '[name].js'
     },
     // devtool: 'eval-source-map',
@@ -83,18 +83,12 @@ const webpackConfig = {
             //         loader: 'html-loader'
             //     }
             // }
-            // {
-            //     test: /(\.jpg|\.png|\.gif|\.jpeg)$/,
-            //     use: {
-            //         loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]' // 转base64 小于 8192B
-            //     }
-            // }
             {
                 test: /(\.jpg|\.png|\.gif|\.jpeg)$/,
                 loader: 'url-loader',
                 query: {
-                    limit: '8192',
-                    name: 'images/[hash:8].[name].[ext]' // 转base64 小于 8192B
+                    limit: '32768',
+                    name: 'images/[hash:8].[name].[ext]' // 转base64 小于 32kb
                 }
             }
         ]
@@ -119,11 +113,8 @@ const webpackConfig = {
         //         NODE_ENV: '"production"'
         //     }
         // }),
-        new CleanWebpackPlugin(['./dist'], {
-            root: path.resolve(__dirname, '../')
-        })
     ].concat(htmlwebpacklist)
-}
+};
 
 module.exports = webpackConfig;
 
@@ -140,4 +131,10 @@ if (process.env.NODE_ENV === 'production') {
     );
     // css压缩
     module.exports.plugins.push(new OptimizeCSSPlugin());
+    // 打包前先清空
+    module.exports.plugins.push(
+        new CleanWebpackPlugin(['./dist'], {
+            root: path.resolve(__dirname, '../')
+        })
+    );
 }

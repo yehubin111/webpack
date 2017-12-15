@@ -1,0 +1,172 @@
+@charset "utf-8";
+/*reset*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button {
+  margin: 0;
+  padding: 0;
+}
+
+body, button, input, select, textarea {
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: arial, '\5FAE\8F6F\96C5\9ED1';
+  color: #333;
+}
+
+input, select, textarea {
+  font-size: 100%;
+  &:focus {
+    outline: none;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th {
+  text-align: inherit;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+iframe {
+  display: block;
+}
+
+abbr, acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+address, caption, cite, code, dfn, em, th, var {
+  font-style: normal;
+  font-weight: 500;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+caption, th {
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    outline: none;
+  }
+  &:hover {
+    outline: none;
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+@white: #fff;
+@gray-stepf3: #f3f3f3;
+@gray-stepf2: #f2f2f2;
+@gray-stepe6: #e6e6e6;
+@gray-stepd: #ddd;
+@gray-stepc: #ccc;
+@gray-stepb3: #b3b3b4;
+@gray-stepa: #aaa;
+@gray-step8: #888;
+@gray-step68: #68686a;
+@gray-step6: #666;
+@gray-step49: #494949;
+@gray-step43: #43464f;
+@gray-step3a: #3a3a3a;
+@gray-step3: #333;
+@black: #000;
+
+@blue-stepeb: #ebf0f5;
+@blue-stepbc: #bcd2ff;
+@blue-step73: #738ec6;
+@blue-step50: #5072b8;
+@blue-step4a: #4aafe9;
+@blue-step44: #4489ca;
+@blue-step45: #454951;
+@blue-step3a: #3a5a99;
+
+@pink-stepff: #ffe0de;
+
+@red-stepfff: #fff1f2;
+@red-stepffd: #ffdbde;
+@red-stepff7: #ff717c;
+@red-stepff: #ff4d5b;
+@red-stepfc: #fcf2f3;
+@red-stepe9: #e96563;
+@red-stepd9: #d93e3f;
+@red-stepcf: #cf0e0f;
+@red-stepc6: #c64745;
+@red-stepe6: #e6372a;
+@red-stepe4: #e42c2e;
+
+@yellow-stepff: #fff3d8;
+@yellow-stepfe: #fefad4;
+@yellow-stepffa: #fffab9;
+
+@green-step57: #57ab76;
+
+.f-red, .f-up {
+  color: @red-stepcf;
+}
+
+.f-down {
+  color: @green-step57;
+}
+
+.f-pink {
+  color: @red-stepff;
+}
+
+.f-link {
+  color: @blue-step44;
+}
+
+.f-hover {
+  color: @gray-step3;
+  &:hover {
+    color: @red-stepcf;
+  }
+}
+
+.f-redN {
+  color: @red-stepff;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #999;
+  font-weight: normal;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #999;
+  font-weight: normal;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #999;
+  font-weight: normal;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #999;
+  font-weight: normal;
+}
