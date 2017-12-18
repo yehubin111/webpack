@@ -48,7 +48,10 @@ $(function () {
             this.awardJudge();
 
             // 埋点
-            TA.log({id: 'fund_mkt_20171213_dqlc'});
+            TA.log({id: 'fund_mkt_20171213_dqlc', fid: 'fund_act,info_gather,ch_fund'});
+            setTimeout(function () {
+                TA.log({id: 'ad_jijin_2017121801', fid: 'fund_act,info_gather,ch_fund'});
+            }, 1000);
         },
         initFund: function () {
             var self = this;

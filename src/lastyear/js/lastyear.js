@@ -45,7 +45,10 @@ $(function () {
             this.awardJudge();
 
             // 埋点
-            TA.log({id: 'fund_mkt_20171215_ndcxl'});
+            TA.log({id: 'fund_mkt_20171215_ndcxl', fid: 'fund_act,info_gather,ch_fund'});
+            setTimeout(function () {
+                TA.log({id: 'ad_jijin_2017121802', fid: 'fund_act,info_gather,ch_fund'});
+            }, 1000);
         },
         initFund: function (fund) {
             var self = this;
@@ -138,7 +141,9 @@ $(function () {
                     TA.log({id: 'fund_mkt_20171215_ndcxl.tk'});
                 });
                 // 弹框展现
-                TA.log({id: 'fund_mkt_20171215_tk'});
+                setTimeout(function () {
+                    TA.log({id: 'fund_mkt_20171215_tk'});
+                }, 2000);
 
                 $('#shadow').show();
             }

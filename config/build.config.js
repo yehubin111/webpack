@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 提取entry中的JS 单独生成script标签调用到相应页面中
-const pagePath = './src/page';
 const htmlList = require('./base.config.js');
 
 function setForEach(ar, cb) {
@@ -25,7 +24,7 @@ module.exports = (function(ar) {
                         var ar = [];
                         ck.forEach((p) => {
                             ar.push(i + '/js/' + p);
-                        })
+                        });
 
                         return ar;
                     })(m);
@@ -53,8 +52,8 @@ module.exports = (function(ar) {
                 })
             )
         })
-    })
+    });
 
     return htmlAr;
 
-})(htmlList)
+})(htmlList);

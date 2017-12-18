@@ -4,6 +4,7 @@
 const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
+const _path = require('./publicPath.js');
 const htmlwebpacklist = require('./build.config.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin'); // 按照entry中css的调用 提取生成相应文件 生成link标签调用到相应页面中
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 编译之前先删除文件夹
@@ -15,6 +16,7 @@ function getEntry(pattern) {
 
     glob.sync(pattern).forEach((v, i) => {
         const filename = path.relative(pth, v).split('.')[0].replace(/\\/g, '/');
+
         entry[filename] = v;
     });
 
@@ -25,7 +27,9 @@ const webpackConfig = {
     entry: getEntry(path.resolve(__dirname, '../src/*/js/*.js')),
     output: {
         path: path.resolve(__dirname, '../dist'),
-        // publicPath: '../../',
+        publicPath: process.env.NODE_ENV === 'production'
+            ? _path.build.publicPath
+            : _path.dev.publicPath,
         filename: '[name].js'
     },
     // devtool: 'eval-source-map',
@@ -40,11 +44,11 @@ const webpackConfig = {
     module: {
         // webpack babel 模块安装 npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react
         loaders: [{
-                test: /\.vue$/,
-                use: {
-                    loader: 'vue-loader'
-                }
-            },
+            test: /\.vue$/,
+            use: {
+                loader: 'vue-loader'
+            }
+        },
             {
                 test: /\.js$/,
                 use: {
@@ -131,6 +135,16 @@ if (process.env.NODE_ENV === 'production') {
     );
     // css压缩
     module.exports.plugins.push(new OptimizeCSSPlugin());
+    // 打包前先清空
+    module.exports.plugins.push(
+        new CleanWebpackPlugin(['./dist'], {
+            root: path.resolve(__dirname, '../')
+        })
+    );
+}
+
+// 开发环境
+if (process.env.NODE_ENV === 'development') {
     // 打包前先清空
     module.exports.plugins.push(
         new CleanWebpackPlugin(['./dist'], {
