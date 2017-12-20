@@ -1,4 +1,4 @@
-import '../css/common.less'
+require('../css/common.less')
 
 var name = 'Lilei';
 console.log(name);

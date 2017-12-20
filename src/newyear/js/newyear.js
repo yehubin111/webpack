@@ -1,9 +1,9 @@
 /**
  * Created by viruser on 2017/12/13.
  */
-import '../../common/less/common.less';
-import '../../common/less/footer.less';
-import '../css/newyear.less';
+require('../../common/less/common.less');
+require('../../common/less/footer.less');
+require('../css/newyear.less');
 
 $(function () {
     function newYearAward(fund) {

@@ -9,6 +9,7 @@ const htmlwebpacklist = require('./build.config.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin'); // 按照entry中css的调用 提取生成相应文件 生成link标签调用到相应页面中
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 编译之前先删除文件夹
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin'); // 压缩css，解决多个js调用同一个css重复问题
+// const es3ifyPlugin = require('es3ify-webpack-plugin');
 
 function getEntry(pattern) {
     const entry = {};
@@ -43,9 +44,10 @@ const webpackConfig = {
     },
     module: {
         // webpack babel 模块安装 npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
+                enforce: 'post',
                 use: {
                     loader: "babel-loader",
                     options: {
@@ -104,6 +106,7 @@ const webpackConfig = {
             }
         }),
         new OptimizeCSSPlugin()
+        // new es3ifyPlugin()
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'common',
         //     filename: '[name].js'
@@ -124,9 +127,14 @@ if (process.env.NODE_ENV === 'production') {
     module.exports.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
             compress: {
+                // 兼容IE78，缺少标识符
+                properties: false,
                 warnings: false
             },
-            sourceMap: true
+            output: {
+                beautify: false
+            },
+            sourceMap: false
         })
     );
     // 打包前先清空
