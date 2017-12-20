@@ -15,28 +15,28 @@ function setForEach(ar, cb) {
     }
 }
 
-module.exports = (function(ar) {
+module.exports = (function (ar) {
     var htmlAr = [];
 
-    setForEach(ar, function(v, i) {
-        setForEach(v, function(m, n) {
+    setForEach(ar, function (v, i) {
+        setForEach(v, function (m, n) {
             var chunklist = ((ck) => {
-                        var ar = [];
-                        ck.forEach((p) => {
-                            ar.push(i + '/js/' + p);
-                        });
+                var ar = [];
+                ck.forEach((p) => {
+                    ar.push(`${i}/js/${p}`);
+                });
 
-                        return ar;
-                    })(m);
+                return ar;
+            })(m);
             htmlAr.push(
                 new HtmlWebpackPlugin({
                     title: '',
-                    filename: i + '/' + n + '.html', // 相对于webpackConfig.output.path
-                    template: './src/' + i + '/' + n + '.html',
+                    filename: `${i}/${n}.html`, // 相对于webpackConfig.output.path
+                    template: `./src/${i}/${n}.html`,
                     inject: 'body',
                     hash: true,
                     chunks: chunklist,
-                    chunksSortMode: function(ck1,ck2){
+                    chunksSortMode: function (ck1, ck2) {
                         let chunk = chunklist;
                         let ck1index = chunk.indexOf(ck1.names[0]);
                         let ck2index = chunk.indexOf(ck2.names[0]);

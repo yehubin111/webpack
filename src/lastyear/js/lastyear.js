@@ -13,16 +13,16 @@ $(function () {
             flist: {},
             dt: {
                 custid: '',
-                encryptcustid: '',
-                activityId: '20171218'
+                encryptcustid: ''
+                // activityId: '20171218'
             },
             custid: '',
             encryptcustid: '',
             login: '/login/loginInit.action?referrer=', //登录
             buy: '/trade/trade_otherTradeInit.action?fundCode={code}&tradeType=buy&amount=50000&frm=head',  //购买
-            infoUrl: 'public/Activity/decemberEnd_rest.txt',
-            getCan: 'interface/Activitynew/decemberEnd',  // 领取奖励资格
-            ifGet: 'interface/Activitynew/decemberEnd',  // 是否领取奖励资格
+            infoUrl: 'public/Activity/subsidyDecember1_rest.txt',
+            getCan: 'interface/Activitynew/subsidyDecember',  // 领取奖励资格
+            ifGet: 'interface/Activitynew/subsidyDecember',  // 是否领取奖励资格
             commonUrl: '/php/fexcactive/pc/crossApi.php',
             nomyUrl: '/php/fexcactive/pc/crossFile.php'  //无秘钥
         };
@@ -35,6 +35,8 @@ $(function () {
             var self = this;
 
             this.initFund(fund);
+            // 学习理财知识
+            this.learnBox();
 
             // 获取收益信息，剩余额度
             this.getInfo(function () {
@@ -49,6 +51,20 @@ $(function () {
             setTimeout(function () {
                 TA.log({id: 'ad_jijin_2017121802', fid: 'fund_act,info_gather,ch_fund'});
             }, 1000);
+        },
+        learnBox: function () {
+            $('#learnLine').click(function () {
+                $("#ticket").show();
+                $('#shadow').show();
+
+                TA.log({id: 'fund_mkt_20171215_tk'});
+            });
+            $("#ticket").click(function () {
+                $('#ticket').hide();
+                $('#shadow').hide();
+                // 埋点
+                TA.log({id: 'fund_mkt_20171215_ndcxl.tk'});
+            });
         },
         initFund: function (fund) {
             var self = this;
@@ -66,7 +82,7 @@ $(function () {
                     + '<div class="box">'
                     + '<p class="bt">活期理财</p>';
 
-                if(v.fundcode == '003515' || v.fundcode == '004939' || v.fundcode == '000709')
+                if(v.fundcode == '001077')
                     str += '<p class="bt">低风险</p>';
                 else
                     str += '<p class="bt">赎回实时到账</p>';
@@ -80,7 +96,7 @@ $(function () {
                     + '<p class="unit">近7日年化收益</p>'
                     + '</div>'
                     + '<div class="right">'
-                    + '<p class="percent"><span>8.8</span>%</p>'
+                    + '<p class="percent"><span>5.0</span>%</p>'
                     + '<p class="unit">奖学金年化（4 天）</p>'
                     + '</div>'
                     + '</div>'
@@ -120,7 +136,7 @@ $(function () {
 
                 $.post(self._data.commonUrl, {
                     "data": JSON.stringify(dt1),
-                    "keyid": "4",
+                    "keyid": "1",
                     "fn": self._data.ifGet
                 }, function (res) {
                     var res = eval('(' + res + ')');
@@ -134,18 +150,6 @@ $(function () {
                 });
             } else {
                 $('.buybox').find(".b-button a").text('领取奖学金').attr('href', self._data.login + location.href);
-                $("#ticket").show().click(function () {
-                    $('#ticket').hide();
-                    $('#shadow').hide();
-                    // 埋点
-                    TA.log({id: 'fund_mkt_20171215_ndcxl.tk'});
-                });
-                // 弹框展现
-                setTimeout(function () {
-                    TA.log({id: 'fund_mkt_20171215_tk'});
-                }, 2000);
-
-                $('#shadow').show();
             }
         },
         checkMyAward: function () {
@@ -169,7 +173,7 @@ $(function () {
 
             $.post(self._data.commonUrl, {
                 "data": JSON.stringify(dt3),
-                "keyid": "4",
+                "keyid": "1",
                 "fn": self._data.ifGet
             }, function (res) {
                 var res = eval('(' + res + ')');
@@ -212,19 +216,19 @@ $(function () {
         toGetcan: function () {
             var self = this;
             $('.buybox').find(".b-button a:not(.acend)").text('领取奖学金').attr('href', 'javascript:void(0)');
-            $("#ticket").show();
-            $('#shadow').show();
-            // 弹框展现
-            TA.log({id: 'fund_mkt_20171215_tk'});
-            $('#ticket').click(function () {
-                self.getTicket.call(self, function () {
-                    $('#ticket').hide();
-                    $('#shadow').hide();
-                });
-
-                // 埋点
-                TA.log({id: 'fund_mkt_20171215_ndcxl.tk'});
-            });
+            // $("#ticket").show();
+            // $('#shadow').show();
+            // // 弹框展现
+            // TA.log({id: 'fund_mkt_20171215_tk'});
+            // $('#ticket').click(function () {
+            //     self.getTicket.call(self, function () {
+            //         $('#ticket').hide();
+            //         $('#shadow').hide();
+            //     });
+            //
+            //     // 埋点
+            //     TA.log({id: 'fund_mkt_20171215_ndcxl.tk'});
+            // });
             $('.buybox').find(".b-button a:not(.acend)").click(function () {
                 self.getTicket.call(self);
 
@@ -240,7 +244,7 @@ $(function () {
 
             $.post(self._data.commonUrl, {
                 "data": JSON.stringify(dt2),
-                "keyid": "4",
+                "keyid": "1",
                 "fn": self._data.getCan
             }, function (res) {
                 var res = eval('(' + res + ')');
@@ -337,26 +341,20 @@ $(function () {
 
     var fundlist = [
         [
-            {fundname: '国泰利是宝货币', fundcode: '003515'}
-        ],
-        [
-            {fundname: '中欧滚钱宝货币', fundcode: '004939'},
-            {fundname: '华安汇财通货币', fundcode: '000709'}
-        ],
-        [
-            {fundname: '国泰利是宝货币', fundcode: '003515'},
-            {fundname: '天弘弘运宝货币', fundcode: '001391'},
-            {fundname: '华安汇财通货币', fundcode: '000709'}
+            {fundname: '华泰柏瑞天添宝货币', fundcode: '003246'},
+            {fundname: '华夏现金宝货币', fundcode: '001077'}
         ]
     ];
-    var time1 = new Date('2017/12/20 15:00').getTime();
-    var time2 = new Date('2017/12/25 15:00').getTime();
-    var now = getServerDate();
+    // var time1 = new Date('2017/12/20 15:00').getTime();
+    // var time2 = new Date('2017/12/25 15:00').getTime();
+    // var now = getServerDate();
 
-    if (now < time1)
-        new newYearAward(fundlist[0]);
-    else if (now > time2)
-        new newYearAward(fundlist[2]);
-    else
-        new newYearAward(fundlist[1]);
+    new newYearAward(fundlist[0]);
+
+    // if (now < time1)
+    //     new newYearAward(fundlist[0]);
+    // else if (now > time2)
+    //     new newYearAward(fundlist[2]);
+    // else
+    //     new newYearAward(fundlist[1]);
 });

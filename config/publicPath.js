@@ -8,7 +8,7 @@ module.exports = {
     },
     build: {
         assetsPath: '',
-        publicPath: '//s.thsi.cn/css/ifund/home/ynew'
+        publicPath: '//s.thsi.cn/webprivate/fund'
     },
     test: {
 

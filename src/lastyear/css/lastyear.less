@@ -7,11 +7,18 @@ body {
 .content {
   width: 100%;
   min-width: 960px;
-  background: url("@{THSimage}/bg.jpg") center 0 no-repeat;
+  background: url("@{THSimage}/bg.jpg?1123") center 0 no-repeat;
   overflow: hidden;
+  .learnLine {
+    width: 560px;
+    margin: 286px auto 19px auto;
+    text-align: center;
+    height: 80px;
+    cursor: pointer;
+  }
   .learnButton {
     width: 960px;
-    margin: 386px auto 116px auto;
+    margin: 0 auto 116px auto;
     text-align: center;
     height: 80px;
     a {
@@ -44,18 +51,16 @@ body {
         text-align: center;
         margin-bottom: 28px;
         .obox {
-          width: 290px;
           display: inline-block;
           .box {
-            width: 400px;
             overflow: hidden;
             .bt {
-              margin-right: 39px;
+              margin: 0 20px;
               font-size: 24px;
-              color: @purple-step50;
+              color: @brown-step5b;
               padding: 0 13px;
               line-height: 38px;
-              border: 1px solid @purple-step50;
+              border: 1px solid @brown-step5b;
               border-radius: 4px;
               float: left;
             }
@@ -84,9 +89,15 @@ body {
           }
           &.left {
             color: @purple-step50;
+            .unit{
+              color: @brown-step5b;
+            }
           }
           &.right {
-            color: @red-steped;
+            color: @purple-step50;
+            .unit{
+              color: @brown-step5b;
+            }
           }
         }
       }
@@ -112,7 +123,7 @@ body {
           }
         }
         .count {
-          color: @gray-step72;
+          color: @brown-step5b;
           font-size: 22px;
           line-height: 40px;
           float: left;
@@ -141,7 +152,7 @@ body {
 .tipbox {
   width: 960px;
   height: 345px;
-  background: url('@{THSimage}/tipbox.png') 0 0 no-repeat;
+  background: url('@{THSimage}/tipbox.png?1123') 0 0 no-repeat;
   margin: 0 auto;
   padding-top: 120px;
   .t-font {
@@ -173,7 +184,7 @@ body {
       width: 753px;
       text-align: justify;
       span {
-        color: @red-stepf5;
+        color: @yellow-stepff;
       }
     }
   }
@@ -201,7 +212,7 @@ body {
   border-radius: 13px;
   .a-top {
     height: 215px;
-    background: url('@{THSimage}/awardtop.png') 0 0 no-repeat;
+    background: url('@{THSimage}/awardtop.png?1123') 0 0 no-repeat;
   }
   .a-dialog {
     .nav {
@@ -323,11 +334,11 @@ body {
       margin-bottom: 15px;
     }
     .percent {
-      color: @red-stepf7;
-      font-size: 79px;
+      color: @purple-step50;
+      font-size: 60px;
       text-align: center;
       span {
-        font-size: 132px;
+        font-size: 100px;
       }
     }
   }
@@ -339,9 +350,9 @@ body {
       padding-left: 29px;
       font-size: 24px;
       line-height: 44px;
-      color: @gray-step78;
+      color: @brown-step5b;
       span {
-        color: @purple-step50;
+
       }
     }
     .button {

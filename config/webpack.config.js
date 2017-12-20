@@ -43,12 +43,7 @@ const webpackConfig = {
     },
     module: {
         // webpack babel 模块安装 npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react
-        loaders: [{
-            test: /\.vue$/,
-            use: {
-                loader: 'vue-loader'
-            }
-        },
+        loaders: [
             {
                 test: /\.js$/,
                 use: {
@@ -108,6 +103,7 @@ const webpackConfig = {
                 return getPath('[name].css').replace('/js/', '/css/');
             }
         }),
+        new OptimizeCSSPlugin()
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'common',
         //     filename: '[name].js'
@@ -133,8 +129,6 @@ if (process.env.NODE_ENV === 'production') {
             sourceMap: true
         })
     );
-    // css压缩
-    module.exports.plugins.push(new OptimizeCSSPlugin());
     // 打包前先清空
     module.exports.plugins.push(
         new CleanWebpackPlugin(['./dist'], {
