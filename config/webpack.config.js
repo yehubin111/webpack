@@ -132,7 +132,11 @@ if (process.env.NODE_ENV === 'production') {
                 warnings: false
             },
             output: {
-                beautify: false
+                beautify: false,
+                quote_keys: true
+            },
+            mangle: {
+                screw_ie8: false
             },
             sourceMap: false
         })

@@ -1,8 +1,8 @@
 /**
  * Created by viruser on 2017/9/4.
  */
-require('../css/common.less')
-require('../css/awardagain.less')
+ import '../css/common.less'
+import '../css/awardagain.less'
 
 $(function(){
     TA.log({id: 'ad_jijin_17090603', fid: 'ch_fund,info_gather'});
