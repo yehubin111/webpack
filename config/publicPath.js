@@ -2,15 +2,15 @@
  * Created by viruser on 2017/12/18.
  */
 module.exports = {
-    dev: {
+    development: {
         assetsPath: '',
-        publicPath: '../'
+        publicPath: '/'
     },
-    build: {
+    production: {
         assetsPath: '',
         publicPath: '//s.thsi.cn/webprivate/fund'
     },
-    test: {
-
+    testing: {
+        publicPath: '../'
     }
 };

@@ -28,12 +28,12 @@ const webpackConfig = {
     entry: getEntry(path.resolve(__dirname, '../src/*/js/*.js')),
     output: {
         path: path.resolve(__dirname, '../dist'),
-        publicPath: process.env.NODE_ENV === 'production'
-            ? _path.build.publicPath
-            : _path.dev.publicPath,
+        publicPath: _path[process.env.NODE_ENV].publicPath,
         filename: '[name].js'
     },
-    // devtool: 'eval-source-map',
+    devtool: process.env.NODE_ENV === 'development'
+        ? 'eval-source-map'
+        : '',
     devServer: {
         contentBase: "./dist", //本地服务器所加载的页面所在的目录
         port: '1001',
@@ -47,7 +47,6 @@ const webpackConfig = {
         rules: [
             {
                 test: /\.js$/,
-                enforce: 'post',
                 use: {
                     loader: "babel-loader",
                     options: {

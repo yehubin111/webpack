@@ -10,7 +10,14 @@ $(function () {
         this._data = {
             fundcode: [],
             fundname: [],
-            flist: {},
+            rate: [],
+            flist: {
+                '003515': '国泰利是宝货币',
+                '004939': '中欧滚钱宝货币',
+                '000709': '华安汇财通货币',
+                '000773': '万家现金宝货币',
+                '001232': '嘉合货币A'
+            },
             dt: {
                 custid: '',
                 encryptcustid: ''
@@ -20,9 +27,9 @@ $(function () {
             encryptcustid: '',
             login: '/login/loginInit.action?referrer=', //登录
             buy: '/trade/trade_otherTradeInit.action?fundCode={code}&tradeType=buy&amount=50000&frm=head',  //购买
-            infoUrl: 'public/Activity/subsidyDecember1_rest.txt',
-            getCan: 'interface/Activitynew/subsidyDecember',  // 领取奖励资格
-            ifGet: 'interface/Activitynew/subsidyDecember',  // 是否领取奖励资格
+            infoUrl: 'public/Activity/decemberEnd_rest.txt',
+            getCan: 'interface/Activitynew/decemberEnd',  // 领取奖励资格
+            ifGet: 'interface/Activitynew/decemberEnd',  // 是否领取奖励资格
             commonUrl: '/php/fexcactive/pc/crossApi.php',
             nomyUrl: '/php/fexcactive/pc/crossFile.php'  //无秘钥
         };
@@ -73,7 +80,8 @@ $(function () {
             $.each(fund, function (i, v) {
                 self._data.fundname.push(v.fundname);
                 self._data.fundcode.push(v.fundcode);
-                self._data.flist[v.fundcode] = v.fundname;
+                self._data.rate.push(v.rate);
+                // self._data.flist[v.fundcode] = v.fundname;
 
                 str += '<div class="buybox">'
                     + '<a href="//fund.10jqka.com.cn/' + v.fundcode + '/" target="_blank" class="b-name">' + v.fundname + '</a>'
@@ -82,8 +90,10 @@ $(function () {
                     + '<div class="box">'
                     + '<p class="bt">活期理财</p>';
 
-                if(v.fundcode == '001077')
+                if (v.fundcode == '004939' || v.fundcode == '000709' || v.fundcode == '001232')
                     str += '<p class="bt">低风险</p>';
+                else if (v.fundcode == '000773')
+                    str += '<p class="bt">假期可赎</p>';
                 else
                     str += '<p class="bt">赎回实时到账</p>';
 
@@ -96,7 +106,7 @@ $(function () {
                     + '<p class="unit">近7日年化收益</p>'
                     + '</div>'
                     + '<div class="right">'
-                    + '<p class="percent"><span>5.0</span>%</p>'
+                    + '<p class="percent"><span>--</span></p>'
                     + '<p class="unit">奖学金年化（4 天）</p>'
                     + '</div>'
                     + '</div>'
@@ -136,7 +146,7 @@ $(function () {
 
                 $.post(self._data.commonUrl, {
                     "data": JSON.stringify(dt1),
-                    "keyid": "1",
+                    "keyid": "4",
                     "fn": self._data.ifGet
                 }, function (res) {
                     var res = eval('(' + res + ')');
@@ -173,7 +183,7 @@ $(function () {
 
             $.post(self._data.commonUrl, {
                 "data": JSON.stringify(dt3),
-                "keyid": "1",
+                "keyid": "4",
                 "fn": self._data.ifGet
             }, function (res) {
                 var res = eval('(' + res + ')');
@@ -186,6 +196,9 @@ $(function () {
 
                 var str = '';
                 $.each(rdr, function (i, v) {
+                    if(!v.prize)
+                        return true;
+                    
                     var time = v.vc_accepttime.substr(4, 2) + '-' + v.vc_accepttime.substr(6, 2) + ' ' + v.vc_accepttime.substr(8, 2) + ':' + v.vc_accepttime.substr(10, 2);
                     str += '<ul class="record">'
                         + '<li>'
@@ -244,7 +257,7 @@ $(function () {
 
             $.post(self._data.commonUrl, {
                 "data": JSON.stringify(dt2),
-                "keyid": "1",
+                "keyid": "4",
                 "fn": self._data.getCan
             }, function (res) {
                 var res = eval('(' + res + ')');
@@ -308,6 +321,7 @@ $(function () {
                     var rdu = dd[self._data.fundcode[i]].rest / 10000;
 
                     $(this).find('.left .percent').html('<span>' + parseFloat(dt[self._data.fundcode[i]]).toFixed(2) + '</span>%');
+                    $(this).find('.right .percent').html('<span>' + self._data.rate[i] + '</span>%');
                     $(this).find('.count').text('剩余额度：' + parseInt(rdu) + '万');
                     $(this).find('.process span').css('width', residue.toFixed(2) + '%');
                     $(this).find(".b-button a").attr('data-buy', self._data.buy.replace('{code}', self._data.fundcode[i])).attr('data-code', self._data.fundcode[i]);
@@ -336,25 +350,44 @@ $(function () {
 
     // 获取服务器时间
     function getServerDate() {
-        return new Date($.ajax({async: false}).getResponseHeader("Date")).getTime();
+        var xhr = null;
+        if (window.XMLHttpRequest) {
+            xhr = new window.XMLHttpRequest();
+        } else { // ie
+            xhr = new ActiveObject("Microsoft")
+        }
+
+        xhr.open("GET", "/", false)//false不可变
+        xhr.send(null);
+        var date = xhr.getResponseHeader("Date");
+        return new Date(date);
     }
 
     var fundlist = [
         [
-            {fundname: '华泰柏瑞天添宝货币', fundcode: '003246'},
-            {fundname: '华夏现金宝货币', fundcode: '001077'}
+            {fundname: '国泰利是宝货币', fundcode: '003515', rate: '8.8'}
+        ],
+        [
+            {fundname: '中欧滚钱宝货币', fundcode: '004939', rate: '16'},
+            {fundname: '华安汇财通货币', fundcode: '000709', rate: '16'}
+        ],
+        [
+            {fundname: '万家现金宝货币', fundcode: '000773', rate: '8.8'},
+            {fundname: '中欧滚钱宝货币', fundcode: '004939', rate: '16'},
+            {fundname: '华安汇财通货币', fundcode: '000709', rate: '16'},
+            {fundname: '嘉合货币A', fundcode: '001232', rate: '16'}
         ]
     ];
-    // var time1 = new Date('2017/12/20 15:00').getTime();
-    // var time2 = new Date('2017/12/25 15:00').getTime();
-    // var now = getServerDate();
+    var time1 = new Date('2017/12/20 15:00').getTime();
+    var time2 = new Date('2017/12/25 15:00').getTime();
+    var now = getServerDate();
 
     new newYearAward(fundlist[0]);
 
-    // if (now < time1)
-    //     new newYearAward(fundlist[0]);
-    // else if (now > time2)
-    //     new newYearAward(fundlist[2]);
-    // else
-    //     new newYearAward(fundlist[1]);
+    if (now < time1)
+        new newYearAward(fundlist[0]);
+    else if (now > time2)
+        new newYearAward(fundlist[2]);
+    else
+        new newYearAward(fundlist[1]);
 });
