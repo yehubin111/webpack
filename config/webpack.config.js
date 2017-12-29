@@ -68,21 +68,6 @@ const webpackConfig = {
                     ],
                 })
             },
-            // {
-            //     test: /(\.jpg|\.png|\.gif|\.jpeg)$/,
-            //     use: {
-            //         loader: 'file-loader',
-            //         query: {
-            //             name: 'images/[hash].[name].[ext]'
-            //         }
-            //     }
-            // },
-            // {
-            //     test: /\.html$/,
-            //     use: {
-            //         loader: 'html-loader'
-            //     }
-            // }
             {
                 test: /(\.jpg|\.png|\.gif|\.jpeg)$/,
                 loader: 'url-loader',

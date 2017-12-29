@@ -8,5 +8,8 @@ module.exports = {
     },
     'lastyear': {
         'lastyear': ['lastyear']
+    },
+    'lateryear': {
+    	'lastyear': ['lastyear']
     }
 };

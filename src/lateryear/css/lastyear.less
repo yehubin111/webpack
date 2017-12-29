@@ -1,0 +1,446 @@
+@import "./pagecommon.less";
+
+body {
+    background-color: @purple-step13;
+}
+
+.content {
+    width: 100%;
+    min-width: 960px;
+    background: url("@{THSimage}/bg.jpg?1123") center 0 no-repeat;
+    overflow: hidden;
+    .learnLine {
+        width: 560px;
+        margin: 255px auto 54px auto;
+        text-align: center;
+        height: 80px;
+        cursor: pointer;
+    }
+    .learnButton {
+        width: 960px;
+        margin: 0 auto 78px auto;
+        text-align: center;
+        a {
+            width: 530px;
+            height: 62px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    }
+    .hometop {
+        width: 782px;
+        height: 138px;
+        background: url("@{THSimage}/boxtop.png?1123") center 0 no-repeat;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+    }
+    .buy {
+        width: 960px;
+        margin: 0 auto 0 auto;
+        text-align: center;
+        .buybox {
+            width: 696px;
+            height: 340px;
+            background: url('@{image}/buybox.jpg') 0 0 no-repeat;
+            display: inline-block;
+            overflow: hidden;
+            margin-bottom: 40px;
+            margin-top: -5px;
+            position: relative;
+            z-index: 9;
+            .b-tag {
+                text-align: center;
+                margin-bottom: 5px;
+                overflow: hidden;
+                padding-left: 29px;
+                .b-name {
+                    font-size: 38px;
+                    text-align: left;
+                    color: @purple-step50;
+                    margin: 49px 0 8px 0;
+                    display: block;
+                    float: left;
+                }
+                .obox {
+                    display: inline-block;
+                    float: left;
+                    margin-top: 56px;
+                    .bt {
+                        margin: 0 0 0 25px;
+                        font-size: 24px;
+                        color: @purple-step50;
+                        padding: 0 23px;
+                        line-height: 38px;
+                        border: 1px solid @purple-step50;
+                        border-radius: 19px;
+                        float: left;
+                    }
+                }
+            }
+            .b-info {
+                overflow: hidden;
+                padding: 0 0 0 29px;
+                margin-bottom: 11px;
+                .left,
+                .right {
+                    float: left;
+                    .percent {
+                        font-weight: bold;
+                        font-size: 32px;
+                        line-height: 84px;
+                        height: 84px;
+                        span {
+                            font-size: 68px;
+                        }
+                    }
+                    .unit {
+                        font-size: 22px;
+                    }
+                    &.left {
+                        color: @red-stepce;
+                        margin-right: 63px;
+                        .unit {
+                            color: @red-stepce;
+                        }
+                    }
+                    &.right {
+                        color: @red-stepce;
+                        .unit {
+                            color: @red-stepce;
+                        }
+                    }
+                }
+            }
+            .b-residue {
+                overflow: hidden;
+                margin-left: 29px;
+                .process {
+                    float: left;
+                    width: 380px;
+                    height: 8px;
+                    background-color: @gray-stepc3;
+                    border-radius: 4px;
+                    overflow: hidden;
+                    margin-top: 16px;
+                    margin-right: 24px;
+                    span {
+                        width: 0;
+                        background-color: @purple-step50;
+                        height: 8px;
+                        border-radius: 4px;
+                        display: block;
+                        *float: left;
+                    }
+                }
+                .count {
+                    color: @red-stepce;
+                    font-size: 22px;
+                    line-height: 40px;
+                    float: left;
+                }
+            }
+            .b-resper{
+              font-size: 18px;
+              color: @red-stepce;
+              padding-left: 29px;
+              text-align: left;
+              margin-top: -10px;
+            }
+            .b-tip{
+              font-size: 12px;
+              color: #dc6e68;
+              padding-left: 29px;
+              text-align: left;
+              margin-top: 4px;
+            }
+            .b-button {
+                text-align: center;
+                position: absolute;
+                right:  32px;
+                bottom: 102px;
+                a {
+                    display: inline-block;
+                    font-size: 32px;
+                    color: #fff;
+                    width: 224px;
+                    height: 94px;
+                    text-align: center;
+                    line-height: 90px;
+                    background: url('@{image}/buybutton.png') 0 0 no-repeat;
+                    &.acend {
+                        background: url('@{image}/buyendbutton.png') 0 0 no-repeat;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tipbox {
+    width: 696px;
+    height: 500px;
+    background: url('@{THSimage}/ticketbox.jpg?1123') 0 0 no-repeat;
+    margin: 0 auto;
+    padding-top: 120px;
+    .t-font {
+        overflow: hidden;
+        padding: 0 29px;
+        color: @purple-step50;
+        margin-bottom: 20px;
+        .sort {
+            float: left;
+            line-height: 36px;
+            height: 36px;
+            width: 38px;
+            span {
+                font-size: 22px;
+                width: 24px;
+                height: 24px;
+                border: 1px solid @purple-step50;
+                display: block;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 25px;
+                margin-top: 5px;
+            }
+        }
+        .con {
+            float: left;
+            line-height: 36px;
+            font-size: 24px;
+            width: 598px;
+            text-align: justify;
+            span {
+                color: @yellow-stepff;
+            }
+        }
+    }
+    .t-risk{
+      font-size: 22px;
+      line-height: 30px;
+      padding: 0 67px;
+      color: @purple-step50;
+      text-align: justify;
+      margin-top: 50px;
+    }
+}
+
+.shadow {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    z-index: 19;
+}
+
+.award {
+    width: 630px;
+    background-color: @white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -306px;
+    margin-left: -315px;
+    border-radius: 13px;
+    z-index: 20;
+    .a-top {
+        height: 215px;
+        background: url('@{THSimage}/awardtop.png?1123') 0 0 no-repeat;
+    }
+    .a-dialog {
+        .nav {
+            overflow: hidden;
+            padding: 0 20px 0 17px;
+            margin: 0 28px;
+            border-bottom: 1px solid @gray-stepe8;
+            li {
+                float: left;
+                line-height: 67px;
+                font-size: 24px;
+                color: @gray-step6;
+                &.name {
+                    width: 247px;
+                    margin-right: 10px;
+                }
+                &.count {
+                    width: 150px;
+                }
+                &.money {
+                    float: right;
+                }
+            }
+        }
+        .recordbox {
+            height: 310px;
+            margin: 0 20px 20px 28px;
+            overflow-y: auto;
+            .record {
+                width: 537px;
+                padding: 0 20px 0 17px;
+                overflow: hidden;
+                border-bottom: 1px solid @gray-stepe8;
+                li {
+                    float: left;
+                    padding: 13px 0 13px 0;
+                    margin-right: 10px;
+                    p {
+                        font-size: 24px;
+                        &.name {
+                            width: 247px;
+                            overflow: hidden;
+                            line-height: 36px;
+                        }
+                        &.time {
+                            width: 247px;
+                            line-height: 30px;
+                        }
+                        &.count,
+                        &.money {
+                            line-height: 66px;
+                        }
+                    }
+                    &.moneyli {
+                        float: right;
+                        color: @red-stepf7;
+                        margin-right: 0;
+                    }
+                }
+            }
+            .default {
+                line-height: 30px;
+                font-size: 24px;
+                color: @gray-step3;
+                text-align: center;
+                padding-right: 8px;
+                &.tp {
+                    margin-top: 66px;
+                }
+            }
+        }
+    }
+    .a-close {
+        width: 21px;
+        height: 21px;
+        position: absolute;
+        display: block;
+        background: url('@{image}/boxclose.png') 0 0 no-repeat;
+        right: -37px;
+        top: -27px;
+        cursor: pointer;
+    }
+}
+
+.easyfoot {
+    width: 100%;
+    height: 113px;
+    padding-top: 30px;
+    p {
+        text-align: center;
+        width: 960px;
+        margin: 0 auto;
+        font-size: 22px;
+        color: @red-stepff;
+        line-height: 42px;
+    }
+}
+
+.ticket {
+    width: 777px;
+    height: 452px;
+    background: url('@{image}/ticket.png') 0 0 no-repeat;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -226px;
+    margin-left: -388px;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 20;
+    .t-left {
+        float: left;
+        width: 276px;
+        padding-top: 74px;
+        .title {
+            line-height: 44px;
+            padding: 0 10px;
+            text-align: center;
+            font-size: 27px;
+            color: @yellow-stepff9;
+            margin-bottom: 15px;
+        }
+        .percent {
+            color: @red-stepf5;
+            font-size: 60px;
+            text-align: center;
+            span {
+                font-size: 100px;
+            }
+        }
+    }
+    .t-right {
+        float: left;
+        width: 499px;
+        padding-top: 42px;
+        .tell {
+            padding-left: 29px;
+            font-size: 24px;
+            line-height: 44px;
+            color: @yellow-stepff9;
+            span {
+              color: @brown-step95;
+            }
+        }
+        .button {
+            text-align: center;
+            margin: 32px 0 21px 0;
+            span {
+                width: 324px;
+                height: 89px;
+                text-align: center;
+                line-height: 83px;
+                border-radius: 5px;
+                background: url('@{image}/ticketbutton.png') 0 0 no-repeat;
+                font-size: 32px;
+                color: @white;
+                display: inline-block;
+                &.acend {
+                    background-color: @gray-stepa5;
+                }
+            }
+        }
+        .title {
+            text-align: center;
+            font-size: 26px;
+            color: @gray-stepa6;
+            line-height: 39px;
+            position: relative;
+            margin-bottom: 5px;
+            i {
+                width: 142px;
+                height: 1px;
+                background-color: @gray-stepa;
+                position: absolute;
+                top: 19px;
+                &.tl {
+                    right: 50%;
+                    margin-right: 3em;
+                }
+                &.tr {
+                    left: 50%;
+                    margin-left: 3em;
+                }
+            }
+        }
+        .tip {
+            margin: 0 29px;
+            font-size: 20px;
+            line-height: 34px;
+            color: @gray-stepa5;
+        }
+    }
+}

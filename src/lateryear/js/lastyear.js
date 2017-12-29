@@ -5,7 +5,7 @@ import '../../common/less/common.less';
 import '../../common/less/footer.less';
 import '../css/lastyear.less'
 
-$(function () {
+$(function() {
     function newYearAward(fund) {
         this._data = {
             fundcode: [],
@@ -16,7 +16,10 @@ $(function () {
                 '004939': '中欧滚钱宝货币',
                 '000709': '华安汇财通货币',
                 '000773': '万家现金宝货币',
-                '001232': '嘉合货币A'
+                '001232': '嘉合货币A',
+                '210012': '金鹰货币',
+                '001077': '华夏现金宝货币',
+                '003246': '华泰柏瑞天添宝货币A'
             },
             dt: {
                 custid: '',
@@ -26,19 +29,19 @@ $(function () {
             custid: '',
             encryptcustid: '',
             login: '/login/loginInit.action?referrer=', //登录
-            buy: '/trade/trade_otherTradeInit.action?fundCode={code}&tradeType=buy&amount=50000&frm=head',  //购买
-            infoUrl: 'public/Activity/decemberEnd_rest.txt',
-            getCan: 'interface/Activitynew/decemberEnd',  // 领取奖励资格
-            ifGet: 'interface/Activitynew/decemberEnd',  // 是否领取奖励资格
+            buy: '/trade/trade_otherTradeInit.action?fundCode={code}&tradeType=buy&amount=50000&frm=head', //购买
+            infoUrl: 'public/Activity/subsidyDecember1_rest.txt',
+            getCan: 'interface/Activitynew/subsidyDecember', // 领取奖励资格
+            ifGet: 'interface/Activitynew/subsidyDecember', // 是否领取奖励资格
             commonUrl: '/php/fexcactive/pc/crossApi.php',
-            nomyUrl: '/php/fexcactive/pc/crossFile.php'  //无秘钥
+            nomyUrl: '/php/fexcactive/pc/crossFile.php' //无秘钥
         };
 
         this.init(fund);
     }
 
     newYearAward.prototype = {
-        init: function (fund) {
+        init: function(fund) {
             var self = this;
 
             this.initFund(fund);
@@ -46,7 +49,7 @@ $(function () {
             this.learnBox();
 
             // 获取收益信息，剩余额度
-            this.getInfo(function () {
+            this.getInfo(function() {
                 self.statsJudge();
             });
 
@@ -54,76 +57,81 @@ $(function () {
             this.awardJudge();
 
             // 埋点
-            TA.log({id: 'fund_mkt_20171215_ndcxl', fid: 'fund_act,info_gather,ch_fund'});
-            setTimeout(function () {
-                TA.log({id: 'ad_jijin_2017121802', fid: 'fund_act,info_gather,ch_fund'});
+            TA.log({ id: 'fund_mkt_20171215_ndcxl', fid: 'fund_act,info_gather,ch_fund' });
+            setTimeout(function() {
+                TA.log({ id: 'ad_jijin_2017121802', fid: 'fund_act,info_gather,ch_fund' });
             }, 1000);
         },
-        learnBox: function () {
-            $('#learnLine').click(function () {
+        learnBox: function() {
+            $('#learnLine').click(function() {
                 $("#ticket").show();
                 $('#shadow').show();
 
-                TA.log({id: 'fund_mkt_20171215_tk'});
+                TA.log({ id: 'fund_mkt_20171215_tk' });
             });
-            $("#ticket").click(function () {
+            $("#ticket").click(function() {
                 $('#ticket').hide();
                 $('#shadow').hide();
                 // 埋点
-                TA.log({id: 'fund_mkt_20171215_ndcxl.tk'});
+                TA.log({ id: 'fund_mkt_20171215_ndcxl.tk' });
             });
         },
-        initFund: function (fund) {
+        initFund: function(fund) {
             var self = this;
 
             var str = '';
-            $.each(fund, function (i, v) {
+            $.each(fund, function(i, v) {
                 self._data.fundname.push(v.fundname);
                 self._data.fundcode.push(v.fundcode);
                 self._data.rate.push(v.rate);
                 // self._data.flist[v.fundcode] = v.fundname;
 
-                str += '<div class="buybox">'
-                    + '<a href="//fund.10jqka.com.cn/' + v.fundcode + '/" target="_blank" class="b-name">' + v.fundname + '</a>'
-                    + '<div class="b-tag">'
-                    + '<div class="obox">'
-                    + '<div class="box">'
-                    + '<p class="bt">活期理财</p>';
+                str += '<div class="buybox">' +
+                    '<div class="b-tag">' +
+                    '<a href="//fund.10jqka.com.cn/' + v.fundcode + '/" target="_blank" class="b-name">' + v.fundname + '</a>' +
+                    '<div class="obox">' +
+                    '<p class="bt">活期</p>';
 
-                if (v.fundcode == '004939' || v.fundcode == '000709' || v.fundcode == '001232')
+                if (v.fundcode == '001077')
                     str += '<p class="bt">低风险</p>';
                 else if (v.fundcode == '000773')
                     str += '<p class="bt">假期可赎</p>';
                 else
-                    str += '<p class="bt">赎回实时到账</p>';
+                    str += '<p class="bt">T+0</p>';
 
-                str += '</div>'
-                    + '</div>'
-                    + '</div>'
-                    + '<div class="b-info">'
-                    + '<div class="left">'
-                    + '<p class="percent"><span>--</span></p>'
-                    + '<p class="unit">近7日年化收益</p>'
-                    + '</div>'
-                    + '<div class="right">'
-                    + '<p class="percent"><span>--</span></p>'
-                    + '<p class="unit">奖学金年化（4 天）</p>'
-                    + '</div>'
-                    + '</div>'
-                    + '<div class="b-residue" id="residue">'
-                    + '<p class="process"><span></span></p>'
-                    + '<p class="count">今日剩余额度：--万</p>'
-                    + '</div>'
-                    + '<div class="b-button">'
-                    + '<a href="javascript:void(0)"></a>'
-                    + '</div>'
-                    + '</div>';
+                str += '</div>' +
+                    '</div>' +
+                    '<div class="b-info">' +
+                    '<div class="left">' +
+                    '<p class="percent"><span>--</span></p>' +
+                    '<p class="unit">近7日年化收益</p>' +
+                    '</div>' +
+                    '<div class="right">' +
+                    '<p class="percent"><span>--</span></p>' +
+                    '<p class="unit">奖学金年化（4 天）</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="b-residue" id="residue">' +
+                    '<p class="process"><span></span></p>' +
+                    '<p class="count">今日剩余额度：--万</p>' +
+                    '</div>' +
+                    '<div class="b-resper">剩余--</div>'
+
+                if (v.fundcode == '210012')
+                    str += '<div class="b-tip">金鹰货币申购限额单日单笔50万元，快速赎回限额单笔单日20万元 （假期赎回实时到账） </div>';
+                else
+                    str += '<div class="b-tip">华夏现金宝货币单日限额200万，超过此额度可能会确认失败</div>';
+
+                str += '<div class="b-button">' +
+                    '<a href="javascript:void(0)"></a>' +
+                    '</div>' +
+                    '</div>';
             });
             $('#allBuy').html(str);
 
             // self._data.buy = self._data.buy.replace('{code}', self._data.fundcode);
         },
-        awardJudge: function () {
+        awardJudge: function() {
             var self = this;
             if (self.loginJudge()) {
                 // 查看我的奖学金
@@ -138,7 +146,7 @@ $(function () {
         //     // $('#ticket').show().find('.button span').addClass('acend').text('活动已结束');
         //     // $('#shadow').show();
         // },
-        statsJudge: function () {
+        statsJudge: function() {
             var self = this;
             if (self.loginJudge()) {
                 var dt1 = self._data.dt;
@@ -146,9 +154,9 @@ $(function () {
 
                 $.post(self._data.commonUrl, {
                     "data": JSON.stringify(dt1),
-                    "keyid": "4",
+                    "keyid": "1",
                     "fn": self._data.ifGet
-                }, function (res) {
+                }, function(res) {
                     var res = eval('(' + res + ')');
                     var rdf = res.data.flag;
 
@@ -162,17 +170,17 @@ $(function () {
                 $('.buybox').find(".b-button a").text('领取奖学金').attr('href', self._data.login + location.href);
             }
         },
-        checkMyAward: function () {
+        checkMyAward: function() {
             var self = this;
 
-            $("#learnButton a").on('click', function () {
+            $("#learnButton a").on('click', function() {
                 $('#award').show();
                 $('#shadow').show();
 
                 // 埋点
-                TA.log({id: 'fund_mkt_20171215_ndcxl.ck'});
+                TA.log({ id: 'fund_mkt_20171215_ndcxl.ck' });
             });
-            $('#award .a-close').on('click', function () {
+            $('#award .a-close').on('click', function() {
                 $('#award').hide();
                 $('#shadow').hide();
             });
@@ -183,9 +191,9 @@ $(function () {
 
             $.post(self._data.commonUrl, {
                 "data": JSON.stringify(dt3),
-                "keyid": "4",
+                "keyid": "1",
                 "fn": self._data.ifGet
-            }, function (res) {
+            }, function(res) {
                 var res = eval('(' + res + ')');
                 var rdr = res.data.records;
 
@@ -195,23 +203,23 @@ $(function () {
                 }
 
                 var str = '';
-                $.each(rdr, function (i, v) {
-                    if(!v.prize)
+                $.each(rdr, function(i, v) {
+                    if (!v.prize)
                         return true;
-                    
+
                     var time = v.vc_accepttime.substr(4, 2) + '-' + v.vc_accepttime.substr(6, 2) + ' ' + v.vc_accepttime.substr(8, 2) + ':' + v.vc_accepttime.substr(10, 2);
-                    str += '<ul class="record">'
-                        + '<li>'
-                        + '<p class="name">' + self._data.flist[v.vc_fundcode] + '</p>'
-                        + '<p class="time">' + time + '</p>'
-                        + '</li>'
-                        + '<li>'
-                        + '<p class="count">' + v.nd_applicationamount + '</p>'
-                        + '</li>'
-                        + '<li class="moneyli">'
-                        + '<p class="money">' + parseFloat(v.prize).toFixed(2) + '</p>'
-                        + '</li>'
-                        + '</ul>';
+                    str += '<ul class="record">' +
+                        '<li>' +
+                        '<p class="name">' + self._data.flist[v.vc_fundcode] + '</p>' +
+                        '<p class="time">' + time + '</p>' +
+                        '</li>' +
+                        '<li>' +
+                        '<p class="count">' + v.nd_applicationamount + '</p>' +
+                        '</li>' +
+                        '<li class="moneyli">' +
+                        '<p class="money">' + parseFloat(v.prize).toFixed(2) + '</p>' +
+                        '</li>' +
+                        '</ul>';
                 });
 
                 $('#recordBox').html(str);
@@ -226,7 +234,7 @@ $(function () {
                 });
             });
         },
-        toGetcan: function () {
+        toGetcan: function() {
             var self = this;
             $('.buybox').find(".b-button a:not(.acend)").text('领取奖学金').attr('href', 'javascript:void(0)');
             // $("#ticket").show();
@@ -242,28 +250,28 @@ $(function () {
             //     // 埋点
             //     TA.log({id: 'fund_mkt_20171215_ndcxl.tk'});
             // });
-            $('.buybox').find(".b-button a:not(.acend)").click(function () {
+            $('.buybox').find(".b-button a:not(.acend)").click(function() {
                 self.getTicket.call(self);
 
                 var code = $(this).attr('data-code');
                 // 埋点
-                TA.log({id: 'fund_mkt_20171215_ndcxl.lq' + code});
+                TA.log({ id: 'fund_mkt_20171215_ndcxl.lq' + code });
             });
         },
-        getTicket: function (cb) {
+        getTicket: function(cb) {
             var self = this;
             var dt2 = self._data.dt;
             dt2.type = 'receive';
 
             $.post(self._data.commonUrl, {
                 "data": JSON.stringify(dt2),
-                "keyid": "4",
+                "keyid": "1",
                 "fn": self._data.getCan
-            }, function (res) {
+            }, function(res) {
                 var res = eval('(' + res + ')');
 
                 if (res.code == '0000') {
-                    $('.buybox').each(function (i, v) {
+                    $('.buybox').each(function(i, v) {
                         var ts = $(this).find(".b-button a");
                         var code = $(ts).attr('data-code');
 
@@ -272,9 +280,9 @@ $(function () {
                             $(ts).text('立即购买').off().attr('href', buylink).attr('target', '_blank');
                         }
 
-                        $(ts).click(function () {
+                        $(ts).click(function() {
                             // 埋点
-                            TA.log({id: 'fund_mkt_20171215_ndcxl.buy' + code});
+                            TA.log({ id: 'fund_mkt_20171215_ndcxl.buy' + code });
                         });
                     });
 
@@ -285,10 +293,10 @@ $(function () {
                 }
             });
         },
-        toBuy: function () {
+        toBuy: function() {
             var self = this;
 
-            $('.buybox').each(function (i, v) {
+            $('.buybox').each(function(i, v) {
                 var ts = $(this).find(".b-button a");
                 var code = $(ts).attr('data-code');
 
@@ -297,23 +305,23 @@ $(function () {
                     $(ts).text('立即购买').off().attr('href', buylink).attr('target', '_blank');
                 }
 
-                $(ts).click(function () {
+                $(ts).click(function() {
                     // 埋点
-                    TA.log({id: 'fund_mkt_20171215_ndcxl.buy' + code});
+                    TA.log({ id: 'fund_mkt_20171215_ndcxl.buy' + code });
                 });
             });
         },
-        getInfo: function (cb) {
+        getInfo: function(cb) {
             var self = this;
 
             $.post(self._data.nomyUrl, {
                 'fn': self._data.infoUrl
-            }, function (res) {
+            }, function(res) {
                 var data = eval('(' + res + ')');
                 var dd = data.detail;
                 var dt = data.totalnet;
 
-                $('.buybox').each(function (i, v) {
+                $('.buybox').each(function(i, v) {
                     if (!dd[self._data.fundcode[i]])
                         return true;
 
@@ -324,10 +332,11 @@ $(function () {
                     $(this).find('.right .percent').html('<span>' + self._data.rate[i] + '</span>%');
                     $(this).find('.count').text('剩余额度：' + parseInt(rdu) + '万');
                     $(this).find('.process span').css('width', residue.toFixed(2) + '%');
-                    $(this).find(".b-button a").attr('data-buy', self._data.buy.replace('{code}', self._data.fundcode[i])).attr('data-code', self._data.fundcode[i]);
+                    $(this).find('.b-resper').html('剩余' + (100 - residue.toFixed(2)).toFixed(1) + '%');
+                    $(this).find('.b-button a').attr('data-buy', self._data.buy.replace('{code}', self._data.fundcode[i])).attr('data-code', self._data.fundcode[i]);
 
                     if (parseFloat(rdu) <= 0)
-                        $(this).find(".b-button a").text('已售完').off().addClass('acend').attr('href', 'javascript:void(0)');
+                        $(this).find('.b-button a').text('已售完').off().addClass('acend').attr('href', 'javascript:void(0)');
 
                 });
 
@@ -335,7 +344,7 @@ $(function () {
                     cb();
             })
         },
-        loginJudge: function () {
+        loginJudge: function() {
             var userid = $.cookie("user_id");
             if (!userid) return false;
 
@@ -357,7 +366,7 @@ $(function () {
             xhr = new ActiveObject("Microsoft")
         }
 
-        xhr.open("GET", "/", false)//false不可变
+        xhr.open("GET", "/", false) //false不可变
         xhr.send(null);
         var date = xhr.getResponseHeader("Date");
         return new Date(date);
@@ -365,17 +374,19 @@ $(function () {
 
     var fundlist = [
         [
-            {fundname: '国泰利是宝货币', fundcode: '003515', rate: '8.8'}
+            { fundname: '国泰利是宝货币', fundcode: '003515', rate: '8.8' }
         ],
         [
-            {fundname: '中欧滚钱宝货币', fundcode: '004939', rate: '16'},
-            {fundname: '华安汇财通货币', fundcode: '000709', rate: '16'}
+            // {fundname: '中欧滚钱宝货币', fundcode: '004939', rate: '16'},
+            { fundname: '华安汇财通货币', fundcode: '000709', rate: '16' }
         ],
         [
-            {fundname: '万家现金宝货币', fundcode: '000773', rate: '8.8'},
-            {fundname: '中欧滚钱宝货币', fundcode: '004939', rate: '16'},
-            {fundname: '华安汇财通货币', fundcode: '000709', rate: '16'},
-            {fundname: '嘉合货币A', fundcode: '001232', rate: '16'}
+            // {fundname: '万家现金宝货币', fundcode: '000773', rate: '8.8'},
+            // {fundname: '中欧滚钱宝货币', fundcode: '004939', rate: '16'},
+            // {fundname: '嘉合货币A', fundcode: '001232', rate: '16'},
+            // {fundname: '华安汇财通货币', fundcode: '000709', rate: '16'}
+            { fundname: '金鹰货币', fundcode: '210012', rate: '5' },
+            { fundname: '华夏现金宝货币', fundcode: '001077', rate: '5' }
         ]
     ];
     var time1 = new Date('2017/12/20 15:00').getTime();

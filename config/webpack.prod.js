@@ -6,11 +6,13 @@ const webpackConfig = require('./webpack.config.js');
 process.env.NODE_ENV = 'production';
 
 const spinner = ora('building for production...');
+
 spinner.start();
 
 webpack(webpackConfig, (err, stats) => {
     spinner.stop();
     if (err) throw err
+
     process.stdout.write(stats.toString({
       colors: true,
       modules: false,
