@@ -40,7 +40,12 @@ const webpackConfig = {
         historyApiFallback: true, //不跳转
         inline: true, //实时刷新
         open: true,
-        openPage: './page/awardagain.html'
+        openPage: './page/awardagain.html',
+        // 页面上直接显示编译错误，无需打开终端查看
+        overlay: {
+            errors: true,
+            warnings: true
+        }
     },
     module: {
         // webpack babel 模块安装 npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react
@@ -48,12 +53,7 @@ const webpackConfig = {
             {
                 test: /\.js$/,
                 use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: [
-                            "es2015", "react"
-                        ]
-                    }
+                    loader: "babel-loader"
                 },
                 exclude: /node_modules/
             },
@@ -93,8 +93,9 @@ const webpackConfig = {
         // new es3ifyPlugin()
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'common',
-        //     filename: '[name].js'
-        // }),
+        //     filename: '[name].js',
+        //     // chunks: []
+        // })
         // new webpack.DefinePlugin({
         //     'process.env': {
         //         NODE_ENV: '"production"'

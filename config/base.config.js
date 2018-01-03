@@ -6,9 +6,6 @@ module.exports = {
     'newyear': {
         'newyear': ['newyear']
     },
-    'lastyear': {
-        'lastyear': ['lastyear']
-    },
     'lateryear': {
     	'lastyear': ['lastyear']
     }

@@ -4,6 +4,8 @@
  import '../css/common.less'
 import '../css/awardagain.less'
 
+import {tell} from './lib/tell.js'
+
 $(function(){
     TA.log({id: 'ad_jijin_17090603', fid: 'ch_fund,info_gather'});
     function sendKey(id) {
