@@ -72,7 +72,7 @@ const webpackConfig = {
                 test: /(\.jpg|\.png|\.gif|\.jpeg)$/,
                 loader: 'url-loader',
                 query: {
-                    limit: '32768',
+                    limit: '8192',
                     name: 'images/[hash:8].[name].[ext]' // 转base64 小于 32kb
                 }
             }
