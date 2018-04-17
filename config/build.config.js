@@ -15,6 +15,16 @@ const setForEach = (ar, cb) => {
     }
 }
 
+// html压缩
+const htmlMinify = process.env.NODE_ENV === 'production'? {
+    minify: { 
+        caseSensitive:false, //是否大小写敏感
+        removeComments:true, //去除注释
+        removeEmptyAttributes:true,//去除空属性
+        collapseWhitespace:true //是否去除空格
+    }
+}: {};
+
 module.exports = ((ar) => {
     let htmlAr = [];
 
@@ -29,7 +39,7 @@ module.exports = ((ar) => {
                 return ar;
             })(m);
             htmlAr.push(
-                new HtmlWebpackPlugin({
+                new HtmlWebpackPlugin(Object.assign({
                     title: '',
                     filename: `${i}/${n}.html`, // 相对于webpackConfig.output.path
                     template: `./src/${i}/${n}.html`,
@@ -43,13 +53,7 @@ module.exports = ((ar) => {
 
                         return ck1index - ck2index
                     }
-                    // minify: {  // html压缩
-                    //     caseSensitive:false, //是否大小写敏感
-                    //     removeComments:true, //去除注释
-                    //     removeEmptyAttributes:true,//去除空属性
-                    //     collapseWhitespace:true //是否去除空格
-                    // }
-                })
+                }, htmlMinify))
             )
         })
     });
