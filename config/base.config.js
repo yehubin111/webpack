@@ -7,6 +7,9 @@ module.exports = {
         'newyear': ['newyear']
     },
     'lateryear': {
-    	'lastyear': ['lastyear']
+        'lastyear': ['lastyear']
+    },
+    'mpage': {
+        'index': ['index']
     }
 };

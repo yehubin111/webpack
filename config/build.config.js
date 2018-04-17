@@ -1,7 +1,7 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // 提取entry中的JS 单独生成script标签调用到相应页面中
+const HtmlWebpackPlugin = require('html-webpack-plugin');// 提取entry中的JS 单独生成script标签调用到相应页面中
 const htmlList = require('./base.config.js');
 
-function setForEach(ar, cb) {
+const setForEach = (ar, cb) => {
     if (ar instanceof Array) {
         ar.forEach((v, i) => {
             if (cb)
@@ -15,13 +15,13 @@ function setForEach(ar, cb) {
     }
 }
 
-module.exports = (function (ar) {
-    var htmlAr = [];
+module.exports = ((ar) => {
+    let htmlAr = [];
 
-    setForEach(ar, function (v, i) {
-        setForEach(v, function (m, n) {
-            var chunklist = ((ck) => {
-                var ar = [];
+    setForEach(ar, (v, i) => {
+        setForEach(v, (m, n) => {
+            let chunklist = ((ck) => {
+                let ar = [];
                 ck.forEach((p) => {
                     ar.push(`${i}/js/${p}`);
                 });
@@ -36,7 +36,7 @@ module.exports = (function (ar) {
                     inject: 'body',
                     hash: true,
                     chunks: chunklist,
-                    chunksSortMode: function (ck1, ck2) {
+                    chunksSortMode: (ck1, ck2) => {
                         let chunk = chunklist;
                         let ck1index = chunk.indexOf(ck1.names[0]);
                         let ck2index = chunk.indexOf(ck2.names[0]);

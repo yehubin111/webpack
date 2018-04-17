@@ -3,6 +3,7 @@
  */
 const path = require('path');
 const glob = require('glob');
+// const argv = require('yargs').argv;
 const webpack = require('webpack');
 const _path = require('./publicPath.js');
 const htmlwebpacklist = require('./build.config.js');
@@ -11,12 +12,12 @@ const CleanWebpackPlugin = require('clean-webpack-plugin'); // 编译之前先�
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin'); // 压缩css，解决多个js调用同一个css重复问题
 // const es3ifyPlugin = require('es3ify-webpack-plugin');
 
-function getEntry(pattern) {
-    const entry = {};
-    const pth = path.resolve(__dirname, '../src');
+const getEntry = (pattern) => {
+    let entry = {};
+    let pth = path.resolve(__dirname, '../src');
 
     glob.sync(pattern).forEach((v, i) => {
-        const filename = path.relative(pth, v).split('.')[0].replace(/\\/g, '/');
+        let filename = path.relative(pth, v).split('.')[0].replace(/\\/g, '/');
 
         entry[filename] = v;
     });
@@ -40,7 +41,7 @@ const webpackConfig = {
         historyApiFallback: true, //不跳转
         inline: true, //实时刷新
         open: true,
-        openPage: './page/awardagain.html',
+        openPage: `./page/awardagain.html`,
         // 页面上直接显示编译错误，无需打开终端查看
         overlay: {
             errors: true,
@@ -73,7 +74,7 @@ const webpackConfig = {
                 loader: 'url-loader',
                 query: {
                     limit: '8192',
-                    name: 'images/[hash:8].[name].[ext]' // 转base64 小于 32kb
+                    name: 'images/[name].[ext]?[hash:8]' // 转base64 小于 8kb
                 }
             }
         ]
