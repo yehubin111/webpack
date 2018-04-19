@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>每天送4%</title>
+    <script>
+    (function(doc, win) {
+        var docElm = doc.documentElement,
+            resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+            recalc = function() {
+                var clientWidth = docElm.clientWidth;
+                if (!clientWidth) {
+                    return;
+                };
+                docElm.style.fontSize = clientWidth / 7.5 + 'px';
+            };
+        if (!doc.addEventListener) {
+            return;
+        };
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    </script>
+</head>
+
+<body>
+    <div class="top-float">
+        <p>学习理财知识获取高收益理财特权</p>
+        <a href="###" class="share">活动分享</a>
+    </div>
+    <div class="con">
+        <div class="c-module1">
+            <a href="###" target="_blank" class="data">
+                <div class="left">
+                    <p class="percent"><span>0</span>%</p>
+                    <p class="unit">七日年化</p>
+                </div>
+                <div class="right">
+                    <p class="percent"><span>0</span></p>
+                    <p class="unit">万份收益</p>
+                </div>
+            </a>
+            <div class="buy">
+            	<a href="###" target="_blank">立即购买</a>
+            </div>
+        </div>
+        <div class="c-module2">
+        	
+        </div>
+        <p class="c-tip">
+        	同花顺20年专业品质，让投资变得更简单<br>基金过往业绩不预示其未来表现，市场有风险，投资需谨慎
+        </p>
+    </div>
+<script type="text/javascript" src="//s.thsi.cn/cb?js/;jquery-1.8.3.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+@image: '../images';
+
+@red-stepaa: #aa2b1a;
+@red-stepe8: #e83157;
+@red-stepf1: #f14030;
+
+@yellow-stepae: #ae6d00;
+@yellow-stepfd: #fdce80;
+@yellow-stepfdf: #fdf5e7;
+@yellow-stepfe: #feba43;
+
+@white: #fff;
+
+.top-float {
+    height: .8rem;
+    background-color: @red-stepe8;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    p {
+        font-size: .28rem;
+        color: @white;
+        line-height: .8rem;
+        padding-left: .86rem;
+        padding-right: 1.52rem;
+        overflow: hidden;
+        background: url('@{image}/tip.png') .42rem center no-repeat;
+    }
+    a {
+        width: 1.52rem;
+        height: .8rem;
+        display: block;
+        position: absolute;
+        font-size: .26rem;
+        line-height: .3rem;
+        right: 0;
+        top: 0;
+        box-sizing: border-box;
+        padding: .1rem .65rem .1rem .29rem;
+        color: @white;
+        background: @yellow-stepfe url('@{image}/arrowright.png') .9rem center no-repeat;
+    }
+}
+
+.con {
+    background: @yellow-stepfd url('@{image}/bg.jpg') 0 0 no-repeat;
+    background-size: 100% auto;
+    padding-top: 4.71rem;
+    .c-module1 {
+        text-align: center;
+        height: 6.14rem;
+        background: url('@{image}/module1.png') center 0 no-repeat;
+        background-size: 6.46rem auto;
+        overflow: hidden;
+        margin-bottom: .51rem;
+        .data {
+            width: 6.46rem;
+            display: block;
+            overflow: hidden;
+            margin: 2rem auto .23rem;
+            div {
+                float: left;
+                width: 50%;
+                text-align: center;
+                .percent {
+                    font-size: .32rem;
+                    color: @red-stepf1;
+                    line-height: .75rem;
+                    height: .75rem;
+                    span {
+                        font-size: .6rem;
+                    }
+                }
+                .unit {
+                    color: #000;
+                    color: @red-stepaa;
+                    font-size: .3rem;
+                    line-height: .4rem;
+                }
+            }
+        }
+        .buy{
+					text-align: center;
+					a{
+						width: 4.99rem;
+						height: .78rem;
+						border-radius: .05rem;
+						display: block;
+						margin: 0 auto;
+						text-align: center;
+						line-height: .78rem;
+						color: @yellow-stepfdf;
+						font-size: .34rem;
+						background-color: @red-stepf1;
+					}
+        }
+    }
+    .c-module2 {
+        height: 17.46rem;
+        background: url('@{image}/module2.png') center 0 no-repeat;
+        background-size: 6.46rem auto;
+        overflow: hidden;
+    }
+    .c-tip {
+        padding: .3rem 0;
+        text-align: center;
+        line-height: .4rem;
+        font-size: .22rem;
+        color: @yellow-stepae;
+    }
+}

@@ -1,0 +1,91 @@
+Arguments: 
+  C:\Users\viruser.v-desktop\bin\node.exe C:\Users\viruser.v-desktop\bin\node_modules\yarn\bin\yarn.js init
+
+PATH: 
+  C:\Users\viruser.v-desktop\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\viruser.v-desktop\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.6.0
+
+Node version: 
+  6.10.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: Can't answer a question unless a user TTY
+      at ConsoleReporter.question (C:\Users\viruser.v-desktop\bin\node_modules\yarn\lib\cli.js:93239:59)
+      at Object.<anonymous> (C:\Users\viruser.v-desktop\bin\node_modules\yarn\lib\cli.js:86193:38)
+      at next (native)
+      at step (C:\Users\viruser.v-desktop\bin\node_modules\yarn\lib\cli.js:98:30)
+      at C:\Users\viruser.v-desktop\bin\node_modules\yarn\lib\cli.js:109:13
+      at process._tickCallback (internal/process/next_tick.js:109:7)
+
+npm manifest: 
+  {
+    "name": "webpack",
+    "version": "1.0.0",
+    "description": "myobject",
+    "main": "index.js",
+    "private": true,
+    "scripts": {
+      "clear": "rm -rf dist",
+      "test": "cross-env NODE_ENV=testing node config/webpack.prod.js",
+      "build": "cross-env NODE_ENV=production node config/webpack.prod.js",
+      "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --config config/webpack.config.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "autoprefixer-loader": "^3.2.0",
+      "babel-core": "^6.26.0",
+      "babel-loader": "^7.1.2",
+      "babel-plugin-transform-es2015-modules-simple-commonjs": "^0.3.0",
+      "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
+      "babel-plugin-transform-es3-property-literals": "^6.22.0",
+      "babel-plugin-transform-runtime": "^6.23.0",
+      "babel-preset-env": "^1.6.1",
+      "babel-preset-es2015": "^6.24.1",
+      "babel-preset-react": "^6.24.1",
+      "chalk": "^2.3.0",
+      "clean-webpack-plugin": "^0.1.17",
+      "cross-env": "^5.1.1",
+      "cross-spawn": "^6.0.5",
+      "css-loader": "^0.28.7",
+      "es3ify-loader": "^0.2.0",
+      "es3ify-webpack-plugin": "^0.0.1",
+      "extract-text-webpack-plugin": "^3.0.2",
+      "file-loader": "^1.1.5",
+      "gulp": "^3.9.1",
+      "gulp-debug": "^3.1.0",
+      "gulp-file-include": "^2.0.0",
+      "html-loader": "^0.5.1",
+      "less": "^2.7.3",
+      "less-loader": "^4.0.5",
+      "optimize-css-assets-webpack-plugin": "^3.2.0",
+      "ora": "^1.3.0",
+      "router": "^1.3.2",
+      "style-loader": "^0.19.0",
+      "url-loader": "^0.6.2",
+      "vue-loader": "^13.5.0",
+      "vue-router": "^3.0.1",
+      "vue-template-compiler": "^2.5.9",
+      "vuex": "^3.0.1",
+      "webpack": "^3.8.1",
+      "webpack-dev-server": "^2.9.3",
+      "yargs": "^11.0.0"
+    },
+    "dependencies": {
+      "commander": "^2.11.0",
+      "html-webpack-plugin": "^2.30.1",
+      "vue": "^2.5.3",
+      "vuex": "^3.0.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
