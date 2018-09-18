@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>私人订制</title>
+</head>
+
+<body>
+    <%= require('html-loader!./templates/common-header.html')  %>
+    <div class="baseinfo">
+        <p class="title"><span class="imp">发布私人订制</span></p>
+        <div class="baseform">
+            <div class="formleft">
+                <div class="select double">
+                    <span class="tl">预购车辆</span>
+                    <div class="tr">
+                        <div class="selectbox leftselect">
+                            <span class="choice">选择品牌</span>
+                            <i class="arrow-down arrow"></i>
+                            <input type="hidden" class="subinfo" name="info">
+                            <ul class="downselect" style="display:none;">
+                                <li>奔驰</li>
+                                <li>宝马</li>
+                                <li>保时捷</li>
+                                <li>奥迪</li>
+                            </ul>
+                        </div>
+                        <div class="selectbox">
+                            <span class="choice">选择型号</span>
+                            <i class="arrow-down arrow"></i>
+                            <input type="hidden" class="subinfo" name="info">
+                            <ul class="downselect" style="display:none;">
+                                <li>A4L</li>
+                                <li>A6</li>
+                                <li>Q5</li>
+                                <li>Q7</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="select special">
+                    <span class="tl">车龄</span>
+                    <div class="tr">
+                        <div class="selectbox leftselect">
+                            <span class="choice">选择车龄</span>
+                            <i class="arrow-down arrow"></i>
+                            <input type="hidden" class="subinfo" name="info">
+                            <ul class="downselect" style="display:none;">
+                                <li>奔驰</li>
+                                <li>宝马</li>
+                                <li>保时捷</li>
+                                <li>奥迪</li>
+                            </ul>
+                        </div>
+                        <div class="inputbox">
+                            <input type="text" placeholder="起始年份" name="">
+                        </div>
+                        <p class="inputto">－</p>
+                        <div class="inputbox">
+                            <input type="text" placeholder="终止年份" name="">
+                        </div>
+                    </div>
+                </div>
+                <div class="input unitinput">
+                    <span class="tl">预算价格</span>
+                    <div class="tr">
+                        <p class="inputbox">
+                            <input type="text" placeholder="请输入" name="mileage">
+                        </p>
+                        <p class="unit">
+                            万元
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="formleft">
+                <div class="textarea">
+                    <span class="tl">需求补充</span>
+                    <div class="tr">
+                        <div class="textareabox">
+                            <textarea name="description" class="detaildesc" placeholder="请输入其他详细要求" id="" cols="30"
+                                rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <span>提交</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <p class="ctitle">
+        订制记录
+    </p>
+    <div class="customlist">
+        <ul class="title">
+            <li class="car">预购车辆</li>
+            <li class="people">预购人</li>
+            <li class="age">车龄</li>
+            <li class="price">预算价格</li>
+            <li class="desc">需求补充</li>
+        </ul>
+        <table class="customall" id="customAll">
+            <tr class="custom">
+                <td class="car">奥迪 奥迪A4L</td>
+                <td class="people">杨青</td>
+                <td class="age">3年</td>
+                <td class="price">20万</td>
+                <td class="desc">暂无补充</td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript" src="../common/js/jquery-1.8.3.min.js"></script>
+</body>
+
+</html>

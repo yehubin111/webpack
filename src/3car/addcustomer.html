@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>新增意向客户</title>
+</head>
+
+<body>
+    <%= require('html-loader!./templates/common-header.html')  %>
+    <div class="baseinfo">
+        <p class="title"><span class="imp">新增意向客户</span></p>
+        <div class="baseform">
+            <div class="formleft">
+                <div class="select single">
+                    <span class="tl">客户等级</span>
+                    <div class="tr">
+                        <div class="selectbox">
+                            <span class="choice">请选择</span>
+                            <i class="arrow-down arrow"></i>
+                            <input type="hidden" class="subinfo" name="info">
+                            <ul class="downselect" style="display:none;">
+                                <li>SUV</li>
+                                <li>MPV</li>
+                                <li>敞篷车</li>
+                                <li>跑车</li>
+                                <li>两厢车</li>
+                                <li>三厢车</li>
+                                <li>旅行车</li>
+                                <li>皮卡</li>
+                                <li>单厢</li>
+                                <li>两厢半</li>
+                                <li>其他</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="select single">
+                    <span class="tl">客户来源</span>
+                    <div class="tr">
+                        <div class="selectbox">
+                            <span class="choice">请选择</span>
+                            <i class="arrow-down arrow"></i>
+                            <input type="hidden" class="subinfo" name="info">
+                            <ul class="downselect" style="display:none;">
+                                <li>SUV</li>
+                                <li>MPV</li>
+                                <li>敞篷车</li>
+                                <li>跑车</li>
+                                <li>两厢车</li>
+                                <li>三厢车</li>
+                                <li>旅行车</li>
+                                <li>皮卡</li>
+                                <li>单厢</li>
+                                <li>两厢半</li>
+                                <li>其他</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="input">
+                    <span class="tl">客户姓名</span>
+                    <div class="tr">
+                        <p class="inputbox">
+                            <input type="text" placeholder="请输入">
+                        </p>
+                    </div>
+                </div>
+                <div class="input">
+                    <span class="tl">联系电话</span>
+                    <div class="tr">
+                        <p class="inputbox">
+                            <input type="text" placeholder="请输入">
+                        </p>
+                    </div>
+                </div>
+                <div class="select double">
+                    <span class="tl">所在地</span>
+                    <div class="tr">
+                        <div class="selectbox leftselect">
+                            <span class="choice">选择省份</span>
+                            <i class="arrow-down arrow"></i>
+                            <input type="hidden" class="subinfo" name="info">
+                            <ul class="downselect" style="display:none;">
+                                <li>奔驰</li>
+                                <li>宝马</li>
+                                <li>保时捷</li>
+                                <li>奥迪</li>
+                            </ul>
+                        </div>
+                        <div class="selectbox">
+                            <span class="choice">选择城市</span>
+                            <i class="arrow-down arrow"></i>
+                            <input type="hidden" class="subinfo" name="info">
+                            <ul class="downselect" style="display:none;">
+                                <li>A4L</li>
+                                <li>A6</li>
+                                <li>Q5</li>
+                                <li>Q7</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="formleft">
+                <div class="select double">
+                    <span class="tl">意向车型</span>
+                    <div class="tr">
+                        <div class="selectbox leftselect">
+                            <span class="choice">选择品牌</span>
+                            <i class="arrow-down arrow"></i>
+                            <input type="hidden" class="subinfo" name="info">
+                            <ul class="downselect" style="display:none;">
+                                <li>奔驰</li>
+                                <li>宝马</li>
+                                <li>保时捷</li>
+                                <li>奥迪</li>
+                            </ul>
+                        </div>
+                        <div class="selectbox">
+                            <span class="choice">选择型号</span>
+                            <i class="arrow-down arrow"></i>
+                            <input type="hidden" class="subinfo" name="info">
+                            <ul class="downselect" style="display:none;">
+                                <li>A4L</li>
+                                <li>A6</li>
+                                <li>Q5</li>
+                                <li>Q7</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="textarea">
+                    <span class="tl">车况描述</span>
+                    <div class="tr">
+                        <div class="textareabox">
+                            <textarea name="description" class="detaildesc" placeholder="请输入车辆描述" id="" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="select single">
+                    <span class="tl">跟进人员</span>
+                    <div class="tr">
+                        <div class="selectbox">
+                            <span class="choice">请选择</span>
+                            <i class="arrow-down arrow"></i>
+                            <input type="hidden" class="subinfo" name="info">
+                            <ul class="downselect" style="display:none;">
+                                <li>SUV</li>
+                                <li>MPV</li>
+                                <li>敞篷车</li>
+                                <li>跑车</li>
+                                <li>两厢车</li>
+                                <li>三厢车</li>
+                                <li>旅行车</li>
+                                <li>皮卡</li>
+                                <li>单厢</li>
+                                <li>两厢半</li>
+                                <li>其他</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <span>提交</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- </div> -->
+    <script type="text/javascript" src="../common/js/jquery-1.8.3.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,555 @@
+@import 'lib/common-header';
+@baseImgUrl: '../images/';
+.sort {
+    width: 1198px;
+    margin: 20px auto;
+    background-color: @baseBG;
+    border: 1px solid @baseLINE;
+    border-radius: @baseRADIUS;
+    padding-top: 35px;
+    .topline {
+        margin: 0 0 20px 0px;
+        height: 40px;
+        padding: 0 0 0 20px;
+        .selectmodule {
+            height: 40px;
+            margin-right: 20px;
+            float: left;
+            .selecttitle {
+                float: left;
+                width: 86px;
+                line-height: 40px;
+            }
+            .selectline {
+                position: relative;
+                float: left;
+                width: 148px;
+                height: 38px;
+                border: 1px solid @baseLINE;
+                margin-right: 10px;
+                .info {
+                    padding-left: 10px;
+                    display: block;
+                    line-height: 38px;
+                    color: #999;
+                }
+                .arrow {
+                    position: absolute;
+                    right: 10px;
+                    top: 18px;
+                }
+                .yeardown {
+                    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, .38);
+                    background-color: #fff;
+                    position: absolute;
+                    top: 39px;
+                    left: -1px;
+                    display: none;
+                    p {
+                        line-height: 30px;
+                        padding-left: 10px;
+                        width: 90px;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: @baseHOVER;
+                            color: @baseCOLOR;
+                        }
+                    }
+                }
+                .colordown {
+                    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, .38);
+                    background-color: #fff;
+                    position: absolute;
+                    top: 39px;
+                    left: -1px;
+                    display: none;
+                    p {
+                        line-height: 30px;
+                        padding-left: 10px;
+                        width: 90px;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: @baseHOVER;
+                            color: @baseCOLOR;
+                        }
+                    }
+                }
+                .typelist {
+                    width: 400px;
+                    background-color: #fff;
+                    position: absolute;
+                    top: 39px;
+                    z-index: 1;
+                    left: -1px;
+                    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, .38);
+                    overflow: hidden;
+                    padding: 20px 0 0 0;
+                    display: none;
+                    dl {
+                        overflow: hidden;
+                        padding-left: 105px;
+                        position: relative;
+                        margin-bottom: 20px;
+                        dt {
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: @baseCOLOR;
+                            position: absolute;
+                            left: 20px;
+                            line-height: 24px;
+                        }
+                        dd {
+                            float: left;
+                            font-size: 12px;
+                            color: #333;
+                            padding: 0 10px;
+                            line-height: 24px;
+                            cursor: pointer;
+                            margin-right: 10px;
+                            &:hover {
+                                color: @baseCOLOR;
+                            }
+                        }
+                    }
+                }
+                .brandlist {
+                    width: 800px;
+                    background-color: #fff;
+                    position: absolute;
+                    top: 39px;
+                    z-index: 1;
+                    left: -1px;
+                    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, .38);
+                    overflow: hidden;
+                    padding: 20px 0 0 0;
+                    display: none;
+                    .listleft {
+                        float: left;
+                        width: 370px;
+                        padding-left: 30px;
+                        dl {
+                            overflow: hidden;
+                            padding-left: 20px;
+                            position: relative;
+                            margin-bottom: 20px;
+                            dt {
+                                font-size: 14px;
+                                font-weight: bold;
+                                color: @baseCOLOR;
+                                position: absolute;
+                                left: 0;
+                                line-height: 24px;
+                            }
+                            dd {
+                                float: left;
+                                font-size: 12px;
+                                color: #333;
+                                padding: 0 10px;
+                                line-height: 24px;
+                                cursor: pointer;
+                                margin-right: 10px;
+                                &:hover {
+                                    color: @baseCOLOR;
+                                }
+                            }
+                        }
+                    }
+                }
+                .provincelist,
+                .citylist {
+                    width: 400px;
+                    background-color: #fff;
+                    position: absolute;
+                    top: 39px;
+                    z-index: 1;
+                    left: -1px;
+                    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, .38);
+                    overflow: hidden;
+                    padding: 20px 0 0 0;
+                    display: none;
+                    dl {
+                        overflow: hidden;
+                        padding-left: 60px;
+                        position: relative;
+                        margin-bottom: 20px;
+                        dt {
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: @baseCOLOR;
+                            position: absolute;
+                            left: 20px;
+                            line-height: 24px;
+                            word-break: break-word;
+                            width: 46px;
+                        }
+                        dd {
+                            float: left;
+                            font-size: 12px;
+                            color: #333;
+                            padding: 0 10px;
+                            line-height: 24px;
+                            cursor: pointer;
+                            margin-right: 10px;
+                            &:hover {
+                                color: @baseCOLOR;
+                            }
+                        }
+                    }
+                }
+            }
+            &.single {
+                .selectline {
+                    width: 218px;
+                    margin-right: 0;
+                }
+            }
+        }
+        .inputmodule {
+            float: left;
+            height: 40px;
+            .selecttitle {
+                float: left;
+                width: 86px;
+                line-height: 40px;
+            }
+            .inputline {
+                position: relative;
+                float: left;
+                width: 218px;
+                height: 38px;
+                border: 1px solid @baseLINE;
+                .info {
+                    padding: 0 8px;
+                    border: none;
+                    width: 72px;
+                    line-height: 38px;
+                }
+            }
+        }
+        .timemodule {
+            float: left;
+            height: 40px;
+            margin-right: 30px;
+            .selecttitle {
+                float: left;
+                width: 86px;
+                line-height: 40px;
+            }
+            .inputline {
+                position: relative;
+                float: left;
+                width: 145px;
+                height: 38px;
+                border: 1px solid @baseLINE;
+                .info {
+                    padding: 0 8px;
+                    border: none;
+                    width: 72px;
+                    line-height: 38px;
+                }
+            }
+            .intervalline {
+                float: left; // width: 86px;
+                width: 16px;
+                text-align: center;
+                line-height: 40px;
+            }
+        }
+    }
+    .tocheck {
+        text-align: center;
+        padding-top: 10px;
+        .button {
+            width: 115px;
+            height: 40px;
+            background-color: @baseCOLOR;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            display: inline-block;
+            border-radius: 3px;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.tab {
+    width: 1198px;
+    height: 50px;
+    border: 1px solid @baseLINE;
+    margin: 0 auto 20px auto;
+    background-color: @baseBG;
+    .left {
+        float: left;
+        li {
+            float: left;
+            padding: 0 28px;
+            line-height: 50px;
+            border-right: 1px solid @baseBG;
+            border-left: 1px solid @baseBG;
+            cursor: pointer;
+            span {
+                margin-left: 10px;
+                color: #999;
+            }
+            &.on {
+                background-color: #fff;
+                border-top: 3px solid @baseCOLOR;
+                border-left: 1px solid @baseLINE;
+                border-right: 1px solid @baseLINE;
+                border-bottom: 1px solid #fff;
+                position: relative;
+                top: -1px;
+                left: -1px;
+                padding-bottom: 1px;
+                padding-left: 29px;
+                padding-right: 27px;
+                line-height: 47px;
+            }
+        }
+    }
+    .addcar {
+        float: right;
+        height: 34px;
+        width: 116px;
+        border-radius: 3px;
+        background-color: @baseCOLOR;
+        line-height: 34px;
+        text-align: center;
+        color: #fff;
+        margin: 8px 8px 0 0;
+    }
+    .grade {
+        float: right;
+        li {
+            float: left;
+            margin-right: 33px;
+            input {
+                float: left;
+                margin-top: 20px;
+                cursor: pointer;
+            }
+            label {
+                float: left;
+                line-height: 30px;
+                margin-top: 11px;
+                padding-left: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.carlist {
+    width: 1199px;
+    border-top: 1px solid @baseLINE;
+    border-left: 1px solid @baseLINE;
+    margin: 0 auto 50px auto;
+    .title {
+        overflow: hidden;
+        li {
+            float: left;
+            height: 38px;
+            line-height: 38px;
+            border-bottom: 1px solid @baseLINE;
+            background-color: @baseBG;
+            border-right: 1px solid @baseLINE;
+            padding-left: 15px;
+            &.carinfo {
+                width: 759px;
+            }
+            &.buyinfo {
+                width: 201px;
+            }
+            &.sellinfo {
+                width: 216px;
+            }
+            &.ctrl {
+                width: 176px;
+            }
+        }
+    }
+    .car {
+        overflow: hidden;
+        li {
+            float: left;
+            background-color: #fff;
+            height: 115px;
+            border-bottom: 1px solid @baseLINE;
+            border-right: 1px solid @baseLINE;
+            padding-left: 15px;
+            &.carinfo {
+                width: 759px;
+                overflow: hidden;
+                .pic {
+                    margin: 15px 15px 0 0;
+                    width: 115px;
+                    height: 85px;
+                    background-color: #999;
+                    float: left;
+                }
+                .info {
+                    float: left;
+                    margin-top: 15px;
+                    .name {
+                        line-height: 22px;
+                        width: 300px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    .oinfo {
+                        font-size: 12px;
+                        color: #999;
+                        line-height: 21px;
+                    }
+                }
+            }
+            &.buyinfo {
+                width: 201px;
+                .info {
+                    margin-top: 16px;
+                    p {
+                        font-size: 12px;
+                        line-height: 21px;
+                    }
+                }
+            }
+            &.sellinfo {
+                width: 216px;
+                .info {
+                    margin-top: 16px;
+                    p {
+                        font-size: 12px;
+                        line-height: 21px;
+                    }
+                }
+            }
+            &.ctrl {
+                width: 176px;
+                .info {
+                    margin-top: 16px;
+                    p {
+                        font-size: 12px;
+                        line-height: 21px;
+                        span {
+                            color: @baseLINK;
+                            &.mid {
+                                margin: 0 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.customlist {
+    width: 1199px;
+    border-top: 1px solid @baseLINE;
+    border-left: 1px solid @baseLINE;
+    margin: 0 auto 50px auto;
+    .title {
+        overflow: hidden;
+        li {
+            float: left;
+            height: 38px;
+            line-height: 38px;
+            border-bottom: 1px solid @baseLINE;
+            background-color: @baseBG;
+            border-right: 1px solid @baseLINE;
+            padding-left: 15px;
+            &.date {
+                width: 119px;
+            }
+            &.from {
+                width: 115px;
+            }
+            &.info {
+                width: 187px;
+            }
+            &.car {
+                width: 181px;
+            }
+            &.record {
+                width: 260px;
+                span {
+                    float: left;
+                }
+                p {
+                    float: right;
+                    margin-right: 15px;
+                    color: @baseLINK;
+                    cursor: pointer;
+                }
+            }
+            &.status {
+                width: 106px;
+            }
+        }
+    }
+    .customall {
+        .custom {
+            overflow: hidden;
+            border-bottom: 1px solid @baseLINE;
+            td {
+                line-height: 38px;
+                background-color: @baseBG;
+                border-right: 1px solid @baseLINE;
+                padding-left: 15px;
+                color: #666;
+                &.date {
+                    width: 119px;
+                }
+                &.from {
+                    width: 115px;
+                }
+                &.info {
+                    width: 187px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    p {
+                        line-height: 28px;
+                    }
+                }
+                &.car {
+                    width: 181px;
+                }
+                &.record {
+                    width: 260px;
+                    padding-top: 20px;
+                    .rlist {
+                        padding-left: 16px;
+                        margin-left: 7px;
+                        border-left: 1px dashed #999;
+                        position: relative;
+                        padding-bottom: 10px;
+                        .datename {
+                            line-height: 14px;
+                        }
+                        .desc {
+                            color: #999;
+                            font-size: 12px;
+                            line-height: 20px;
+                            margin: 10px 15px 10px 0;
+                        }
+                        .dot {
+                            width: 9px;
+                            height: 9px;
+                            background-color: #fff;
+                            border: 3px solid @baseLINK;
+                            position: absolute;
+                            border-radius: 50%;
+                            top: -1px;
+                            left: -8px;
+                        }
+                    }
+                }
+                &.status {
+                    width: 106px;
+                }
+            }
+        }
+    }
+}

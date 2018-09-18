@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>库存管理</title>
+</head>
+
+<body>
+    <%= require('html-loader!./templates/common-header.html')  %>
+        <div class="sort">
+            <div class="topline">
+                <div class="search">
+                    <div class="input">
+                        <input type="text" id="keyWord" placeholder="品牌车系/编号">
+                    </div>
+                    <div class="button" id="keyWordSearch">搜索</div>
+                </div>
+                <div class="selectbox">
+                    <div class="selectline dateselect" data-key="startyear" closetype="date">
+                        <span class="info">上牌时间</span>
+                        <i class="arrow-down arrow"></i>
+                        <div class="yeardown">
+                            <p>不限</p>
+                            <p>2018</p>
+                            <p>2017</p>
+                            <p>2016</p>
+                            <p>2015</p>
+                            <p>2014</p>
+                            <p>2013</p>
+                            <p>2012</p>
+                            <p>2011</p>
+                            <p>2010</p>
+                            <p>2009</p>
+                            <p>2008</p>
+                            <p>2007</p>
+                            <p>2006</p>
+                            <p>2005</p>
+                        </div>
+                    </div>
+                    <span class="toline">┄</span>
+                    <div class="selectline dateselect" data-key="endyear" closetype="date">
+                        <span class="info">上牌时间</span>
+                        <i class="arrow-down arrow"></i>
+                        <div class="yeardown">
+                            <p>不限</p>
+                            <p>2018</p>
+                            <p>2017</p>
+                            <p>2016</p>
+                            <p>2015</p>
+                            <p>2014</p>
+                            <p>2013</p>
+                            <p>2012</p>
+                            <p>2011</p>
+                            <p>2010</p>
+                            <p>2009</p>
+                            <p>2008</p>
+                            <p>2007</p>
+                            <p>2006</p>
+                            <p>2005</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputbox">
+                    <div class="inputline" closetype="price">
+                        <input type="text" class="info" id="minPrice" placeholder="价格：万元">
+                    </div>
+                    <span class="toline">┄</span>
+                    <div class="inputline" closetype="price">
+                        <input type="text" class="info" id="maxPrice" placeholder="价格：万元">
+                    </div>
+                    <div class="inputbutton" id="priceSort">确定</div>
+                </div>
+                <div class="inputbox mileage">
+                    <div class="inputline" closetype="mileage">
+                        <input type="text" class="info" id="mileageInput" placeholder="里程：万公里">
+                    </div>
+                    <div class="inputbutton" id="mileageSort">确定</div>
+                </div>
+                <div class="selectbox color">
+                    <div class="selectline colorselect" closetype="color">
+                        <span class="info">颜色</span>
+                        <i class="arrow-down arrow"></i>
+                        <div class="colordown">
+                            <p>不限</p>
+                            <p>银灰色</p>
+                            <p>深灰色</p>
+                            <p>黑色</p>
+                            <p>白色</p>
+                            <p>红色</p>
+                            <p>蓝色</p>
+                            <p>咖啡色</p>
+                            <p>香槟色</p>
+                            <p>黄色</p>
+                            <p>紫色</p>
+                            <p>绿色</p>
+                            <p>橙色</p>
+                            <p>粉红色</p>
+                            <p>棕色</p>
+                            <p>冰川白</p>
+                            <p>银色</p>
+                            <p>金色</p>
+                            <p>其他</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sortline">
+                <span class="left">品牌：</span>
+                <ul class="right" id="brandSelect" closetype="brand">
+                </ul>
+            </div>
+            <div class="sortline">
+                <span class="left">车系：</span>
+                <ul class="right" id="seriesSelect" closetype="series">
+                    <li class="on">不限</li>
+                </ul>
+            </div>
+            <div class="sortline">
+                <span class="left">车型：</span>
+                <ul class="right" id="cartypeSelect" closetype="cartype">
+                    <li class="on">不限</li>
+                    <li>SUV</li>
+                    <li>MPV</li>
+                    <li>敞篷车</li>
+                    <li>跑车</li>
+                    <li>两厢车</li>
+                    <li>三厢车</li>
+                    <li>旅行车</li>
+                    <li>皮卡</li>
+                    <li>单厢</li>
+                    <li>两厢半</li>
+                    <li>其他</li>
+                </ul>
+            </div>
+            <div class="conditionline">
+                <span class="left">已选：</span>
+                <ul class="condition" id="selectCondition">
+                </ul>
+                <span class="reset" id="resetCondition">重置条件</span>
+            </div>
+        </div>
+        <div class="tab">
+            <ul class="left">
+                <li class="on">在售<span>66</span></li>
+                <li>已预定<span>66</span></li>
+                <li>已售<span>66</span></li>
+                <li>退库<span>66</span></li>
+            </ul>
+            <a href="/car/manager/public" target="_blank" class="addcar">新增库存车辆</a>
+        </div>
+        <div class="carlist">
+            <ul class="title">
+                <li class="carinfo">车辆信息</li>
+                <!-- <li class="buyinfo">采购信息</li> -->
+                <li class="sellinfo">销售信息</li>
+                <li class="ctrl">操作</li>
+            </ul>
+            <div class="carAll" id="carAll"></div>
+            <script>
+                var carHTML = [
+                    '{{#list}}',
+                    '<ul class="car">',
+                    '<li class="carinfo">',
+                    '<p class="pic">',
+                    '<a href="/car/manager/detail?id={{id}}" target="_blank"><img src="/file/view?fileName={{images}}" alt=""></a></p>',
+                    '<div class="info">',
+                    '<p class="name"><a href="/car/manager/detail?id=1" target="_blank">{{keyword}}</a></p>',
+                    '<p class="oinfo">上牌 {{spsj}} | {{mileage}}万公里 </p>',
+                    '<p class="oinfo">出厂 {{ccsj}} | 排量 {{auto}}</p>',
+                    '<p class="oinfo">VIN码： {{vin}}</p></div></li>',
+                    // '<li class="buyinfo">',
+                    // '<div class="info">',
+                    // '<p>采购类型：--</p>',
+                    // '<p>采购价：--</p>',
+                    // '<p>评估师：--</p>',
+                    // '<p>采购日期：--</p></div></li>',
+                    '<li class="sellinfo">',
+                    '<div class="info">',
+                    '<p>展厅报价：{{ztPrice}}万</p>',
+                    '<p>联盟底价：{{lmPrice}}万</p></div></li>',
+                    '<li class="ctrl">',
+                    '<div class="info"><p>',
+                    '<span><a href="/car/manager/public?id={{id}}" target="_blank">编辑</a></span>',
+                    '<span class="mid">定价</span>',
+                    '<span>成交</span></p></div></li></ul>',
+                    '{{/list}}'
+                ].join('');
+            </script>
+        </div>
+        <div class="carSwitch" id="carSwitch"></div>
+        <script type="text/javascript" src="/common/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="/common/js/mustache.js"></script>
+        <!-- <script type="text/javascript" src="../common/js/mustache.js"></script> -->
+</body>
+
+</html>

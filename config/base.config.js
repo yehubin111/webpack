@@ -11,5 +11,16 @@ module.exports = {
     },
     'mpage': {
         'index': ['index']
+    },
+    '3car': {
+        'login': ['login'],
+        'datacenter': ['datacenter'],
+        'carinventory': ['carinventory'],
+        'public': ['public'],
+        'customer': ['customer'],
+        'addcustomer': ['addcustomer'],
+        'alliance': ['alliance'],
+        'myorder': ['myorder'],
+        'detail': ['detail']
     }
 };

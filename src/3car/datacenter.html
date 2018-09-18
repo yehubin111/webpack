@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>数据管理</title>
+</head>
+
+<body>
+    <%= require('html-loader!./templates/common-header.html')  %>
+        <div class="inventory">
+            <p class="title"><span>库存情况</span></p>
+            <div class="ibox">
+                <div class="ivmodule">
+                    <p class="ititle">三人行联盟</p>
+                    <p class="icar">库存台数 <span>68</span></p>
+                    <p class="ilast">最后一台车更新时间： <span>2018-07-22</span></p>
+                </div>
+                <div class="ivmodule">
+                    <p class="ititle">二手车之家</p>
+                    <p class="icar">库存台数 <span>68</span></p>
+                    <p class="ilast">最后一台车更新时间： <span>2018-07-22</span></p>
+                </div>
+                <div class="ivmodule">
+                    <p class="ititle">华夏二手车网</p>
+                    <p class="icar">库存台数 <span>68</span></p>
+                    <p class="ilast">最后一台车更新时间： <span>2018-07-22</span></p>
+                </div>
+                <div class="ivmodule">
+                    <p class="ititle">淘车通</p>
+                    <p class="icar">库存台数 <span>68</span></p>
+                    <p class="ilast">最后一台车更新时间： <span>2018-07-22</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="datalist">
+            <p class="title"><span>营销分析</span></p>
+            <div class="dataall">
+                <div class="dialog">
+                    <div class="dialogdata">
+                        <ul class="nav">
+                            <li class="name"></li>
+                            <li class="click">点击量</li>
+                            <li class="sell">成交数</li>
+                        </ul>
+                        <ul class="data">
+                            <li class="name">二手车之家</li>
+                            <li class="click">2322</li>
+                            <li class="sell">2322</li>
+                        </ul>
+                        <ul class="data">
+                            <li class="name">华夏二手车网</li>
+                            <li class="click">2322</li>
+                            <li class="sell">2322</li>
+                        </ul>
+                        <ul class="data">
+                            <li class="name">淘车通</li>
+                            <li class="click">2322</li>
+                            <li class="sell">2322</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="datachart">
+                    <div class="daytab">
+                        <ul>
+                            <li class="on">本周</li>
+                            <li>本月</li>
+                        </ul>
+                    </div>
+                    <div class="chart">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clue">
+            <p class="title"><span>线索统计</span></p>
+            <div class="cluedialog">
+                <div class="dialog">
+                    <ul class="nav">
+                        <li class="name"></li>
+                        <li class="other">未处理线索</li>
+                        <li class="other">已处理线索</li>
+                        <li class="other">电话线索</li>
+                        <li class="other">本地线索</li>
+                        <li class="other">单月消费数</li>
+                        <li class="other">单条线索成本</li>
+                    </ul>
+                    <ul class="line">
+                        <li class="name">二手车之家</li>
+                        <li class="other">10</li>
+                        <li class="other">10</li>
+                        <li class="other">10</li>
+                        <li class="other">10</li>
+                        <li class="other">10</li>
+                        <li class="other">2.31213</li>
+                    </ul>
+                    <ul class="line">
+                        <li class="name">华夏二手车网</li>
+                        <li class="other">10</li>
+                        <li class="other">10</li>
+                        <li class="other">10</li>
+                        <li class="other">10</li>
+                        <li class="other">10</li>
+                        <li class="other">2.31213</li>
+                    </ul>
+                    <ul class="line">
+                        <li class="name">淘车通</li>
+                        <li class="other">10</li>
+                        <li class="other">10</li>
+                        <li class="other">10</li>
+                        <li class="other">10</li>
+                        <li class="other">10</li>
+                        <li class="other">2.31213</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../common/js/jquery-1.8.3.min.js"></script>
+</body>
+
+</html>

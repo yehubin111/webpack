@@ -11,6 +11,6 @@ module.exports = {
         publicPath: '//s.thsi.cn/webprivate/fund'
     },
     testing: {
-        publicPath: '../'
+        publicPath: '/'
     }
 };

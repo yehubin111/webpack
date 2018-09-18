@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>车辆详情</title>
+</head>
+
+<body>
+    <%= require('html-loader!./templates/common-header.html')  %>
+    <div class="baseinfo">
+        <div class="leftfocus" id="leftFocus">
+            <ul class="pic">
+                <li>
+                    <img src="http://img.hx2cars.com/upload/newimg1/M02/76/D4/Clo8w1tGv3qAN7NhAAFoiTkB4Mk533_small_800_600.jpg"
+                        alt="">
+                </li>
+                <li>
+                    <img src="http://img.hx2cars.com/upload/newimg2/M06/75/0D/Clo8xFtNNnaASS7ZAAH8F3ovw5A793_small_800_600.jpg"
+                        alt="">
+                </li>
+                <li>
+                    <img src="http://img.hx2cars.com/upload/newimg2/M00/75/26/Clo8xFtNieSATC8iAAGUgm82Ujw493_small_800_600.jpg"
+                        alt="">
+                </li>
+            </ul>
+            <span class="turnleft"></span>
+            <span class="turnright"></span>
+            <p class="pagecount">
+                <span class="dispage">1</span>
+                <span class="total">/0</span>
+            </p>
+        </div>
+        <div class="rightinfo">
+            <p class="carname">宝马1系 2011款 120i 敞篷轿跑车(进口)</p>
+            <div class="carprice">
+                <div class="price">
+                    <p class="pname">展厅标价</p>
+                    <p class="pnum">123.40万</p>
+                </div>
+                <div class="price rightprice">
+                    <p class="pname">展厅标价</p>
+                    <p class="pnum">123.40万</p>
+                </div>
+            </div>
+            <div class="carinfo">
+                <div class="cinfo">
+                    <p class="info">2011-02</p>
+                    <p class="unit">上牌时间</p>
+                    <i class="line"></i>
+                </div>
+                <div class="cinfo">
+                    <p class="info">6.23万公里</p>
+                    <p class="unit">表显里程</p>
+                    <i class="line"></i>
+                </div>
+                <div class="cinfo">
+                    <p class="info">杭州</p>
+                    <p class="unit">上牌地</p>
+                    <i class="line"></i>
+                </div>
+                <div class="cinfo">
+                    <p class="info">2.0</p>
+                    <p class="unit">排量</p>
+                    <i class="line"></i>
+                </div>
+                <div class="cinfo">
+                    <p class="info">自动</p>
+                    <p class="unit">变速箱</p>
+                </div>
+            </div>
+            <div class="other">
+                <div class="business">
+                    <p class="title"><span>商家信息</span> <i class="line"></i></p>
+                    <p class="company">杭州安卡网络技术股份有限公司</p>
+                    <p class="area">杭州市西湖区天堂软件园A幢16楼</p>
+                    <p class="tel">18868899636</p>
+                    <p class="name">老杨</p>
+                </div>
+                <div class="weapp">
+                    <p class="img">
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537199763&di=dbc97c2de7b371d1d1a2b55f01ed6ec2&imgtype=jpg&er=1&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20170913%2F687c0966bc1d454a982ad6f3743f56ea.jpeg"
+                            alt="">
+                    </p>
+                    <p class="tip">扫一扫，马上入手</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="detailinfo">
+        <p class="title">
+            <span>基本信息</span>
+        </p>
+        <div class="detail">
+            <ul class="left">
+                <li>
+                    <span class="title">表显里程</span>
+                    <span class="value">0.21万公里</span>
+                </li>
+                <li>
+                    <span class="title">所在地</span>
+                    <span class="value">石家庄</span>
+                </li>
+                <li>
+                    <span class="title">变速箱</span>
+                    <span class="value">手自一体</span>
+                </li>
+                <li>
+                    <span class="title">车身颜色</span>
+                    <span class="value">蓝色</span>
+                </li>
+                <li>
+                    <span class="title">供油系统</span>
+                    <span class="value">汽油</span>
+                </li>
+                <li>
+                    <span class="title">使用性质</span>
+                    <span class="value">非营运</span>
+                </li>
+                <li>
+                    <span class="title">年检到期日</span>
+                    <span class="value">--</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="title">初次上牌</span>
+                    <span class="value">2018年12月</span>
+                </li>
+                <li>
+                    <span class="title">排放标准</span>
+                    <span class="value">国五</span>
+                </li>
+                <li>
+                    <span class="title">排量</span>
+                    <span class="value">2.0L</span>
+                </li>
+                <li>
+                    <span class="title">车体形式</span>
+                    <span class="value">SUV</span>
+                </li>
+                <li>
+                    <span class="title">载核人数</span>
+                    <span class="value">2</span>
+                </li>
+                <li>
+                    <span class="title">车辆性质</span>
+                    <span class="value">私户</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="carpic">
+        <p class="title">
+            <span>车辆图片</span>
+        </p>
+        <div class="piclist">
+            <ul>
+                <li>
+                    <img src="http://img.hx2cars.com/upload/newimg1/M02/76/D4/Clo8w1tGv3qAN7NhAAFoiTkB4Mk533_small_800_600.jpg"
+                        alt="">
+                </li>
+                <li>
+                    <img src="http://img.hx2cars.com/upload/newimg1/M02/76/D4/Clo8w1tGv3qAN7NhAAFoiTkB4Mk533_small_800_600.jpg"
+                        alt="">
+                </li>
+                <li>
+                    <img src="http://img.hx2cars.com/upload/newimg1/M02/76/D4/Clo8w1tGv3qAN7NhAAFoiTkB4Mk533_small_800_600.jpg"
+                        alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="../common/js/jquery-1.8.3.min.js"></script>
+</body>
+
+</html>

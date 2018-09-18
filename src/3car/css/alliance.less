@@ -1,0 +1,108 @@
+@import 'lib/common-header';
+@baseImgUrl: '../images/';
+
+
+.alisearch {
+    width: 1200px;
+    text-align: center;
+    margin: 50px auto;
+    .searchbox {
+        display: inline-block;
+        overflow: hidden;
+        .left {
+            float: left;
+            width: 795px;
+            height: 44px;
+            border: 1px solid @baseLINE;
+            border-right: none;
+            input {
+                border: none;
+                width: 775px;
+                height: 100%;
+                padding: 0 10px;
+                font-size: 16px;
+            }
+        }
+        .right {
+            float: left;
+            height: 46px;
+            width: 140px;
+            background-color: @baseCOLOR;
+            color: #fff;
+            text-align: center;
+            line-height: 46px;
+            font-size: 16px;
+        }
+    }
+    .hotsearch{
+        width: 936px;
+        text-align: left;
+        display: inline-block;
+        line-height: 30px;
+        color: #999;
+        span{
+            margin-right: 20px;
+            color: @baseLINK;
+            cursor: pointer;
+        }
+    }
+}
+.alliance{
+    width: 1240px;
+    margin:0 auto;
+    text-align: center;
+    ul{
+        overflow: hidden;
+        display: inline-block;
+        li{
+            float: left;
+            width: 578px;
+            height: 188px;
+            margin: 0 20px 40px 20px;
+            border: 1px solid @baseLINE;
+            border-radius: @baseRADIUS;
+            background-color: @baseBG;
+            .left{
+                float: left;
+                width: 148px;
+                height: 148px;
+                border: 1px solid @baseLINE;
+                margin-top: 19px;
+                margin-left: 30px;
+                margin-right: 22px;
+
+            }
+            .right{
+                float: left;
+                margin-top: 19px;
+                .company{
+                    line-height: 24px;
+                    font-size: 16px; 
+                    text-align: left;
+                    margin-bottom: 38px;
+                }
+                .name{
+                    color: #666;
+                    padding-left: 26px;
+                    line-height: 30px;
+                    background: url('@{baseImgUrl}allience-name.png') left center no-repeat;
+                    text-align: left;
+                }
+                .tel{
+                    color: #666;
+                    padding-left: 26px;
+                    line-height: 30px;
+                    background: url('@{baseImgUrl}allience-tel.png') left center no-repeat;
+                    text-align: left;
+                }
+                .location{
+                    color: #666;
+                    padding-left: 26px;
+                    line-height: 30px;
+                    background: url('@{baseImgUrl}allience-location.png') left center no-repeat;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

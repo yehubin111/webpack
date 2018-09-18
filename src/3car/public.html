@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>新增库存车辆</title>
+</head>
+
+<body>
+    <%= require('html-loader!./templates/common-header.html')  %>
+    <!-- <div id="allInfo"> -->
+    <form action="/car/manager/public" method="post" ref="form" target="_self" onsubmit="return false" name="allInfo"
+        id="allInfo">
+        <div class="uploadimg">
+            <p class="title"><span class="imp">车辆图片</span><span class="tell">最多可上传16张</span></p>
+            <div class="uploadbox">
+                <ul class="uploadpic" id="uploadPic">
+                    <!-- <li>
+                            <img src="http://localhost:8080/file/view?fileName=20180907000528.jpg" alt="">
+                        </li> -->
+
+                </ul>
+                <div class="uploadmethod">
+                    <p>
+                        <span class="uploadbutton" id="uploadButton"></span>
+                        <span class="uploading" id="uploadIng"><i></i></span>
+                        <span class="uploadstatus" id="uploadStatus">上传图片</span>
+                        <input id="fileupload" class="fileupload" type="file" accept="image/gif, image/jpeg, image/jpg, image/png"
+                            name="file" value="upload" data-url="/file/upload">
+                    </p>
+                    <p>
+                        <span class="wxupload" id="wxUpload">微信上传</span>
+                    </p>
+                    <div class="ewm" id="wxEwm">
+                        <img src="images/ewm.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!--files[] multiple-->
+        </div>
+        <div class="baseinfo">
+            <p class="title"><span class="imp">基本信息</span><span class="tell">带 <i>*</i> 为必填</span></p>
+            <div class="baseform">
+                <div class="formleft">
+                    <div class="radio">
+                        <span class="tl">车辆类型</span>
+                        <div class="tr">
+                            <input type="radio" value="0" name="type" id="Type1" checked>
+                            <label for="Type1">二手车</label>
+                            <input type="radio" value="1" name="type" id="Type2">
+                            <label for="Type2">新车</label>
+                        </div>
+                    </div>
+                    <div class="input important">
+                        <i class="star">*</i>
+                        <span class="tl">VIN码</span>
+                        <div class="tr">
+                            <p class="inputbox">
+                                <input type="text" placeholder="请输入" name="vin">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="select third important">
+                        <i class="star">*</i>
+                        <span class="tl">品牌型号</span>
+                        <div class="tr">
+                            <div class="selectbox leftselect brandselect">
+                                <span class="choice">选择品牌</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="brandId">
+                                <div class="brandlist" id="brandList">
+                                    <div class="listleft">
+                                    </div>
+                                    <div class="listleft">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="selectbox leftselect typeselect">
+                                <span class="choice">选择车系</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="typeId">
+                                <div class="typelist" id="typeList">
+                                </div>
+                            </div>
+                            <div class="selectbox seriesselect">
+                                <span class="choice">选择车型</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="seriesId">
+                                <div class="serieslist" id="seriesList">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select single important">
+                        <i class="star">*</i>
+                        <span class="tl">车型</span>
+                        <div class="tr">
+                            <div class="selectbox">
+                                <span class="choice">请选择</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="carType">
+                                <ul class="downselect" style="display:none;">
+                                    <li>SUV</li>
+                                    <li>MPV</li>
+                                    <li>敞篷车</li>
+                                    <li>跑车</li>
+                                    <li>两厢车</li>
+                                    <li>三厢车</li>
+                                    <li>旅行车</li>
+                                    <li>皮卡</li>
+                                    <li>单厢</li>
+                                    <li>两厢半</li>
+                                    <li>其他</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input unitinput important">
+                        <i class="star">*</i>
+                        <span class="tl">表显里程</span>
+                        <div class="tr">
+                            <p class="inputbox">
+                                <input type="text" placeholder="请输入" name="mileage">
+                            </p>
+                            <p class="unit">
+                                万公里
+                            </p>
+                        </div>
+                    </div>
+                    <div class="select double important">
+                        <i class="star">*</i>
+                        <span class="tl">初次上牌</span>
+                        <div class="tr">
+                            <div class="selectbox leftselect">
+                                <span class="choice">请选择年份</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="spsj_year">
+                                <ul class="downselect" style="display:none;">
+                                    <li>2018</li>
+                                    <li>2017</li>
+                                    <li>2016</li>
+                                    <li>2015</li>
+                                    <li>2014</li>
+                                    <li>2013</li>
+                                    <li>2012</li>
+                                    <li>2011</li>
+                                    <li>2010</li>
+                                    <li>2009</li>
+                                    <li>2008</li>
+                                    <li>2007</li>
+                                    <li>2006</li>
+                                    <li>2005</li>
+                                </ul>
+                            </div>
+                            <div class="selectbox">
+                                <span class="choice">请选择月份</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="spsj_month">
+                                <ul class="downselect" style="display:none;">
+                                    <li>1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li>
+                                    <li>5</li>
+                                    <li>6</li>
+                                    <li>7</li>
+                                    <li>8</li>
+                                    <li>9</li>
+                                    <li>10</li>
+                                    <li>11</li>
+                                    <li>12</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select single important">
+                        <i class="star">*</i>
+                        <span class="tl">车身颜色</span>
+                        <div class="tr">
+                            <div class="selectbox">
+                                <span class="choice">请选择颜色</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="color">
+                                <ul class="downselect" style="display:none;">
+                                    <li>不限</li>
+                                    <li>银灰色</li>
+                                    <li>深灰色</li>
+                                    <li>黑色</li>
+                                    <li>白色</li>
+                                    <li>红色</li>
+                                    <li>蓝色</li>
+                                    <li>咖啡色</li>
+                                    <li>香槟色</li>
+                                    <li>黄色</li>
+                                    <li>紫色</li>
+                                    <li>绿色</li>
+                                    <li>橙色</li>
+                                    <li>粉红色</li>
+                                    <li>棕色</li>
+                                    <li>冰川白</li>
+                                    <li>银色</li>
+                                    <li>金色</li>
+                                    <li>其他</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input important">
+                        <i class="star">*</i>
+                        <span class="tl">排量</span>
+                        <div class="tr">
+                            <p class="inputbox">
+                                <input type="text" placeholder="请输入" name="auto">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="select single important">
+                        <i class="star">*</i>
+                        <span class="tl">排放标准</span>
+                        <div class="tr">
+                            <div class="selectbox">
+                                <span class="choice">请选择排放标准</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="outType">
+                                <ul class="downselect" style="display:none;">
+                                    <li>国I</li>
+                                    <li>国II</li>
+                                    <li>国III</li>
+                                    <li>国IV</li>
+                                    <li>国V</li>
+                                    <li>国VI</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select double important">
+                        <i class="star">*</i>
+                        <span class="tl">出厂日期</span>
+                        <div class="tr">
+                            <div class="selectbox leftselect">
+                                <span class="choice">请选择年份</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="ccsj_year">
+                                <ul class="downselect" style="display:none;">
+                                    <li>不限</li>
+                                    <li>2018</li>
+                                    <li>2017</li>
+                                    <li>2016</li>
+                                    <li>2015</li>
+                                    <li>2014</li>
+                                    <li>2013</li>
+                                    <li>2012</li>
+                                    <li>2011</li>
+                                    <li>2010</li>
+                                    <li>2009</li>
+                                    <li>2008</li>
+                                    <li>2007</li>
+                                    <li>2006</li>
+                                    <li>2005</li>
+                                </ul>
+                            </div>
+                            <div class="selectbox">
+                                <span class="choice">请选择月份</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="ccsj_month">
+                                <ul class="downselect" style="display:none;">
+                                    <li>不限</li>
+                                    <li>1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li>
+                                    <li>5</li>
+                                    <li>6</li>
+                                    <li>7</li>
+                                    <li>8</li>
+                                    <li>9</li>
+                                    <li>10</li>
+                                    <li>11</li>
+                                    <li>12</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select single">
+                        <span class="tl">变速箱</span>
+                        <div class="tr">
+                            <div class="selectbox">
+                                <span class="choice">请选择变速箱</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="gear">
+                                <ul class="downselect" style="display:none;">
+                                    <li>手动挡</li>
+                                    <li>自动挡</li>
+                                    <li>手自一体</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select single">
+                        <span class="tl">燃料形式</span>
+                        <div class="tr">
+                            <div class="selectbox">
+                                <span class="choice">请选择燃料形式</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="powerType">
+                                <ul class="downselect" style="display:none;">
+                                    <li>汽油</li>
+                                    <li>柴油</li>
+                                    <li>油电混动</li>
+                                    <li>增程式</li>
+                                    <li>插电式混合动力</li>
+                                    <li>纯电动</li>
+                                    <li>氢燃料电池</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input">
+                        <span class="tl">发动机号</span>
+                        <div class="tr">
+                            <p class="inputbox">
+                                <input type="text" placeholder="请输入发动机号" name="engineNo">
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="formleft">
+                    <div class="input">
+                        <span class="tl">车牌号</span>
+                        <div class="tr">
+                            <p class="inputbox">
+                                <input type="text" placeholder="请输入车牌号" name="carNo">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="input unitinput">
+                        <span class="tl">钥匙数</span>
+                        <div class="tr">
+                            <p class="inputbox">
+                                <input type="text" placeholder="请输入" name="keyNum">
+                            </p>
+                            <p class="unit">
+                                把
+                            </p>
+                        </div>
+                    </div>
+                    <div class="input unitinput">
+                        <span class="tl">座位数</span>
+                        <div class="tr">
+                            <p class="inputbox">
+                                <input type="text" placeholder="请输入" name="seatNum">
+                            </p>
+                            <p class="unit">
+                                个
+                            </p>
+                        </div>
+                    </div>
+                    <div class="input unitinput">
+                        <span class="tl">新车指导价</span>
+                        <div class="tr">
+                            <p class="inputbox">
+                                <input type="text" placeholder="请输入" name="newPrice">
+                            </p>
+                            <p class="unit">
+                                万元
+                            </p>
+                        </div>
+                    </div>
+                    <div class="input unitinput">
+                        <span class="tl">过户次数</span>
+                        <div class="tr">
+                            <p class="inputbox">
+                                <input type="text" placeholder="请输入" name="ghNum">
+                            </p>
+                            <p class="unit">
+                                次
+                            </p>
+                        </div>
+                    </div>
+                    <div class="select single">
+                        <span class="tl">车辆性质</span>
+                        <div class="tr">
+                            <div class="selectbox">
+                                <span class="choice">请选择性质</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="carNature">
+                                <ul class="downselect" style="display:none;">
+                                    <li>不限</li>
+                                    <li>公户</li>
+                                    <li>私户</li>
+                                    <li>外事车</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select single">
+                        <span class="tl">内饰颜色</span>
+                        <div class="tr">
+                            <div class="selectbox">
+                                <span class="choice">请选择颜色</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="inColor">
+                                <ul class="downselect" style="display:none;">
+                                    <li>不限</li>
+                                    <li>米黄</li>
+                                    <li>米灰</li>
+                                    <li>黑色</li>
+                                    <li>红色</li>
+                                    <li>棕色</li>
+                                    <li>其他</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select double">
+                        <span class="tl">车辆所在地</span>
+                        <div class="tr">
+                            <div class="selectbox leftselect provinceselect" data-lang="#cityList1">
+                                <span class="choice">请选择省份</span>
+                                <i class="arrow-down arrow"></i>
+                                <!-- <input type="hidden" class="subinfo" name="areacode_sf"> -->
+                                <div class="provincelist" id="provinceList1">
+                                </div>
+                            </div>
+                            <div class="selectbox cityselect">
+                                <span class="choice">请选择城市</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="areacode">
+                                <div class="citylist" id="cityList1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select double">
+                        <span class="tl">车辆归属地</span>
+                        <div class="tr">
+                            <div class="selectbox leftselect provinceselect" data-lang="#cityList2">
+                                <span class="choice">请选择省份</span>
+                                <i class="arrow-down arrow"></i>
+                                <!-- <input type="hidden" class="subinfo" name="belongArea_sf"> -->
+                                <div class="provincelist" id="provinceList2">
+                                </div>
+                            </div>
+                            <div class="selectbox cityselect">
+                                <span class="choice">请选择城市</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="belongArea">
+                                <div class="citylist" id="cityList2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="select double">
+                        <span class="tl">年检到期</span>
+                        <div class="tr">
+                            <div class="selectbox leftselect">
+                                <span class="choice">请选择年份</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="njdqsj_year">
+                                <ul class="downselect" style="display:none;">
+                                    <li>不限</li>
+                                    <li>2018</li>
+                                    <li>2017</li>
+                                    <li>2016</li>
+                                    <li>2015</li>
+                                    <li>2014</li>
+                                    <li>2013</li>
+                                    <li>2012</li>
+                                    <li>2011</li>
+                                    <li>2010</li>
+                                    <li>2009</li>
+                                    <li>2008</li>
+                                    <li>2007</li>
+                                    <li>2006</li>
+                                    <li>2005</li>
+                                </ul>
+                            </div>
+                            <div class="selectbox">
+                                <span class="choice">请选择月份</span>
+                                <i class="arrow-down arrow"></i>
+                                <input type="hidden" class="subinfo" name="njdqsj_month">
+                                <ul class="downselect" style="display:none;">
+                                    <li>不限</li>
+                                    <li>1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li>
+                                    <li>5</li>
+                                    <li>6</li>
+                                    <li>7</li>
+                                    <li>8</li>
+                                    <li>9</li>
+                                    <li>10</li>
+                                    <li>11</li>
+                                    <li>12</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="radio">
+                        <span class="tl">4S定期保养</span>
+                        <div class="tr">
+                            <input type="radio" value="0" name="keepGood" id="fours1" checked>
+                            <label for="fours1">有</label>
+                            <input type="radio" value="1" name="keepGood" id="fours1">
+                            <label for="fours1">无</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardetail">
+                    <span class="tl">车况描述</span>
+                    <div class="tr">
+                        <div class="textareabox">
+                            <textarea name="desc" class="detaildesc" placeholder="请输入车辆描述" id="" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="baseinfo priceinfo">
+            <p class="title"><span class="imp">价格信息</span><span class="tell">带 <i>*</i> 为必填</span></p>
+            <div class="baseform pricebox">
+                <div class="formleft">
+                    <div class="input unitinput important">
+                        <i class="star">*</i>
+                        <span class="tl">展厅标价</span>
+                        <div class="tr">
+                            <p class="inputbox">
+                                <input type="text" placeholder="请输入价格" name="ztPrice">
+                            </p>
+                            <p class="unit">
+                                万元
+                            </p>
+                        </div>
+                    </div>
+                    <div class="input unitinput important">
+                        <i class="star">*</i>
+                        <span class="tl">销售底价</span>
+                        <div class="tr">
+                            <p class="inputbox">
+                                <input type="text" placeholder="请输入价格" name="lmPrice">
+                            </p>
+                            <p class="unit">
+                                万元
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="submit">
+            <input type="submit" id="toPublic" value="发车">
+        </div>
+    </form>
+    <!-- </div> -->
+    <script type="text/javascript" src="/common/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/common/js/jquery-ui-widget.js"></script>
+    <script type="text/javascript" src="/common/js/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="/common/js/jquery.fileupload.js"></script>
+</body>
+
+</html>

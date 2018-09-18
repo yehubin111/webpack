@@ -1,0 +1,236 @@
+@import 'lib/common-header';
+@baseImgUrl: '../images/';
+
+.baseinfo {
+    width: 1200px;
+    margin: 27px auto 0 auto;
+    .title {
+        padding-left: 16px;
+        span {
+            &.imp {
+                display: inline-block;
+                line-height: 57px;
+                font-size: 20px;
+                border-bottom: 3px solid @baseLINK;
+                margin-right: 15px;
+            }
+            &.tell {
+                line-height: 57px;
+                font-size: 14px;
+                color: #666;
+                display: inline-block;
+                i {
+                    color: @baseCOLOR;
+                }
+            }
+        }
+    }
+    .baseform {
+        width: 1198px;
+        background-color: @baseBG;
+        border: 1px solid @baseLINE;
+        border-radius: @baseRADIUS;
+        padding-top: 50px;
+        .formleft {
+            float: left;
+            padding-left: 50px;
+            margin-right: 50px;
+            .radio {
+                margin-bottom: 25px;
+                height: 40px;
+                .tl {
+                    float: left;
+                    width: 85px;
+                    height: 40px;
+                    line-height: 40px;
+                }
+                .tr {
+                    float: left;
+                    width: 300px;
+                    height: 40px;
+                    line-height: 40px;
+                    overflow: hidden;
+                    padding-left: 10px;
+                    input {
+                        margin-right: 8px;
+                        float: left;
+                        margin-top: 13px;
+                    }
+                    label {
+                        margin-right: 25px;
+                        float: left;
+                    }
+                }
+            }
+            .input {
+                margin-bottom: 25px;
+                height: 40px;
+                .tl {
+                    float: left;
+                    width: 85px;
+                    height: 40px;
+                    line-height: 40px;
+                }
+                .tr {
+                    float: left;
+                    width: 310px;
+                    height: 40px;
+                    overflow: hidden;
+                    .inputbox {
+                        width: 308px;
+                        height: 38px;
+                        border: 1px solid @baseLINE;
+                        background-color: #fff;
+                        input {
+                            width: 288;
+                            height: 100%;
+                            border: none;
+                            padding: 0 10px;
+                        }
+                    }
+                }
+                &.unitinput {
+                    .tr {
+                        .inputbox {
+                            width: 138px;
+                            float: left;
+                            margin-right: 10px;
+                            input {
+                                width: 118px;
+                            }
+                        }
+                        .unit {
+                            line-height: 40px;
+                            float: left;
+                        }
+                    }
+                }
+            }
+            .textarea {
+                overflow: hidden;
+                margin-bottom: 25px;
+                .tl {
+                    float: left;
+                    width: 85px;
+                    height: 40px;
+                    line-height: 40px;
+                }
+                .tr {
+                    float: left;
+                    .textareabox {
+                        border: 1px solid @baseLINE;
+                        width: 510px;
+                        height: 150px;
+                        background-color: #fff;
+                        .detaildesc {
+                            width: 490px;
+                            height: 150px;
+                            max-width: 490px;
+                            max-height: 150px;
+                            border: none;
+                            line-height: 40px;
+                            padding: 0 10px;
+                        }
+                    }
+                }
+            }
+            .select {
+                margin-bottom: 25px;
+                height: 40px;
+                .tl {
+                    float: left;
+                    width: 85px;
+                    height: 40px;
+                    line-height: 40px;
+                }
+                .tr {
+                    float: left;
+                    width: 310px;
+                    height: 40px;
+                    .selectbox {
+                        width: 148px;
+                        height: 38px;
+                        border: 1px solid @baseLINE;
+                        position: relative;
+                        float: left;
+                        background-color: #fff;
+                        .choice {
+                            color: #999;
+                            line-height: 38px;
+                            padding: 0 0 0 10px
+                        }
+                        .arrow {
+                            position: absolute;
+                            right: 10px;
+                            top: 18px;
+                        }
+                        &.leftselect {
+                            margin-right: 10px;
+                        }
+                        .downselect {
+                            box-shadow: 0 3px 10px -2px rgba(0, 0, 0, .38);
+                            background-color: #fff;
+                            position: absolute;
+                            top: 39px;
+                            left: -1px; // display: none;
+                            z-index: 1;
+                            width: 100%;
+                            li {
+                                line-height: 30px;
+                                padding-left: 10px;
+                                cursor: pointer;
+                                &:hover {
+                                    background-color: @baseHOVER;
+                                    color: @baseCOLOR;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.double {
+                    .tr {
+                        .selectbox {
+                            width: 148px;
+                        }
+                    }
+                }
+                &.single {
+                    .tr {
+                        .selectbox {
+                            width: 308px;
+                        }
+                    }
+                }
+            }
+            .important {
+                position: relative;
+                &>i {
+                    color: #f44446;
+                    position: absolute;
+                    line-height: 40px;
+                    left: -10px;
+                    top: 0;
+                }
+            }
+        }
+        .button {
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 40px;
+            float: left;
+            width: 100%;
+            span {
+                width: 114px;
+                height: 40px;
+                background-color: @baseCOLOR;
+                border: none;
+                color: #fff;
+                text-align: center;
+                line-height: 40px;
+                border-radius: 3px;
+                display: inline-block;
+                cursor: pointer;
+            }
+        }
+    }
+}

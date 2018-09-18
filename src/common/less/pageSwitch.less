@@ -1,0 +1,104 @@
+/*****分页*****/
+.hxPageswitch {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  .hxSwitchbox {
+    overflow: hidden;
+    display: inline-block;
+    *display: inline !important;
+    zoom: 1;
+    .dataTotal {
+      float: left;
+      margin-right: 10px;
+      line-height: 38px;
+      font-size: 12px;
+      color: #333;
+      padding-top: 1px;
+      span {
+        color: #cf0e0f;
+      }
+    }
+    ul {
+      display: inline-block;
+      float: left;
+      li {
+        cursor: pointer;
+        float: left;
+        width: 21px;
+        height: 38px;
+        background-color: #fff;
+        line-height: 38px;
+        text-align: center;
+        font-size: 12px;
+        margin-right: 10px;
+        color: #333;
+        border-top: 1px solid #fff;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -khtml-user-select: none;
+        user-select: none;
+        &.prevpage {
+          width: 52px;
+        }
+        &.nextpage {
+          width: 52px;
+        }
+        &.swidthOn {
+          color: #cf0e0f;
+          font-weight: bold;
+          border-top: 1px solid #cf0e0f;
+        }
+        &.noclick {
+          color: #aaa;
+        }
+      }
+    }
+    .switchpageall {
+      height: 38px;
+      line-height: 38px;
+      font-size: 12px;
+      float: left;
+      input {
+        &.customPage {
+          width: 22px;
+          height: 24px;
+          line-height: 24px;
+          border: 1px solid #ddd;
+          padding: 0 5px;
+          font-size: 12px;
+          display: inline-block;
+          float: left;
+          margin-top: 6px;
+          margin-right: 5px;
+        }
+      }
+      a {
+        &.gotoPage {
+          cursor: pointer;
+          width: 34px;
+          float: left;
+          margin-top: 6px;
+          height: 24px;
+          display: inline-block;
+          border: 1px solid #ddd;
+          line-height: 24px;
+          text-align: center;
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+          -khtml-user-select: none;
+          user-select: none;
+        }
+      }
+      span {
+        margin-right: 10px;
+        display: inline-block;
+        float: left;
+      }
+    }
+  }
+}
+
+/*****分页*****/

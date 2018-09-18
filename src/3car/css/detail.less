@@ -1,0 +1,315 @@
+@import 'lib/common-header';
+@baseImgUrl: '../images/';
+.baseinfo {
+    width: 1200px;
+    margin: 20px auto 40px auto;
+    overflow: hidden;
+    .leftfocus {
+        width: 560px;
+        height: 420px;
+        overflow: hidden;
+        float: left;
+        margin-right: 25px;
+        position: relative;
+        .pic {
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            li {
+                background-color: @baseBG;
+                width: 560px;
+                height: 420px;
+                overflow: hidden;
+                float: left;
+                img {
+                    width: 560px;
+                    height: 420px;
+                }
+            }
+        }
+        .turnleft {
+            width: 40px;
+            height: 90px;
+            position: absolute;
+            top: 165px;
+            left: 0;
+            cursor: pointer;
+            background: url('@{baseImgUrl}imgleft.png') center center no-repeat;
+            background-color: rgba(0, 0, 0, .3);
+        }
+        .turnright {
+            width: 40px;
+            height: 90px;
+            position: absolute;
+            top: 165px;
+            right: 0;
+            cursor: pointer;
+            background: url('@{baseImgUrl}imgright.png') center center no-repeat;
+            background-color: rgba(0, 0, 0, .3);
+        }
+        .pagecount {
+            width: 56px;
+            height: 42px;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            background-color: rgba(0, 0, 0, .3);
+            text-align: center;
+            span {
+                color: #fff;
+                line-height: 42px;
+                &.dispage {
+                    font-size: 26px;
+                }
+                &.total {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .rightinfo {
+        float: left;
+        width: 615px;
+        .carname {
+            line-height: 50px;
+            margin-bottom: 6px;
+            height: 50px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 22px;
+        }
+        .carprice {
+            height: 84px;
+            background-color: #f7f8fa;
+            display: block;
+            overflow: hidden;
+            width: 100%;
+            .price {
+                float: left;
+                margin-top: 16px;
+                width: 243px;
+                padding-left: 20px;
+                .pname {
+                    font-size: 14px;
+                    color: #999;
+                    line-height: 14px;
+                    margin-bottom: 14px;
+                }
+                .pnum {
+                    font-size: 24px;
+                    color: @baseCOLOR;
+                    font-weight: bold;
+                    line-height: 24px;
+                }
+                &.rightprice {
+                    border-left: 1px solid @baseLINE;
+                }
+            }
+        }
+        .carinfo {
+            overflow: hidden;
+            padding: 18px 0 18px 0;
+            margin-bottom: 6px;
+            .cinfo {
+                float: left;
+                text-align: center;
+                padding: 0 25px;
+                position: relative;
+                .info {
+                    font-size: 18px;
+                    line-height: 18px;
+                    margin-bottom: 12px;
+                }
+                .unit {
+                    font-size: 12px;
+                    color: #999;
+                    line-height: 12px;
+                }
+                .line {
+                    height: 34px;
+                    width: 1px;
+                    position: absolute;
+                    background-color: #efefef;
+                    right: 0;
+                    top: 4px;
+                }
+            }
+        }
+        .other {
+            overflow: hidden;
+            .business {
+                width: 422px;
+                float: left;
+                .title {
+                    line-height: 49px;
+                    span {
+                        font-size: 16px;
+                        color: #666;
+                        float: left;
+                    }
+                    .line {
+                        width: 350px;
+                        float: right;
+                        height: 1px;
+                        background-color: @baseLINE;
+                        margin-top: 24px;
+                    }
+                }
+                .company {
+                    width: 100%;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    line-height: 46px;
+                    font-size: 16px;
+                    margin-bottom: 6px;
+                }
+                .area,
+                .tel,
+                .name {
+                    line-height: 32px;
+                    color: #666;
+                    padding-left: 35px;
+                    &.area {
+                        background: url('@{baseImgUrl}allience-location.png') left center no-repeat;
+                    }
+                    &.tel {
+                        background: url('@{baseImgUrl}allience-tel.png') left center no-repeat;
+                    }
+                    &.name {
+                        background: url('@{baseImgUrl}allience-name.png') left center no-repeat;
+                    }
+                }
+            }
+            .weapp {
+                float: right;
+                width: 172px;
+                height: 194px;
+                background-color: @baseBG;
+                border: 1px solid @baseLINE;
+                border-radius: @baseRADIUS;
+                text-align: center;
+                .img {
+                    width: 160px;
+                    height: 160px;
+                    overflow: hidden;
+                    display: inline-block;
+                    margin-top: 2px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .tip {
+                    font-size: 12px;
+                    color: #666;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.detailinfo {
+    width: 1200px;
+    margin: 0 auto 40px auto;
+    &>.title {
+        border-bottom: 1px solid @baseLINE;
+        padding-left: 16px;
+        margin-bottom: 27px;
+        span {
+            font-size: 20px;
+            height: 48px;
+            line-height: 48px;
+            border-bottom: 3px solid @baseLINK;
+            display: inline-block;
+        }
+    }
+    .detail {
+        padding-left: 16px;
+        padding-right: 16px;
+        overflow: hidden;
+        ul {
+            float: left;
+            li {
+                overflow: hidden;
+                line-height: 47px;
+                border-bottom: 1px solid #efefef;
+                width: 544px;
+                span {
+                    float: left; // font-weight: bold;
+                    font-size: 16px;
+                    &.title {
+                        width: 138px;
+                        color: #000;
+                    }
+                    &.value {
+                        color: #666;
+                    }
+                }
+            }
+            &.left {
+                margin-right: 80px;
+            }
+        }
+    }
+    .cardesc {
+        overflow: hidden;
+        line-height: 47px;
+        /* border-bottom: 1px solid #efefef; */
+        /* width: 544px; */
+        margin: 0 16px;
+        .title {
+            width: 138px;
+            color: #000;
+            float: left;
+            font-size: 16px;
+        }
+        .value {
+            float: left;
+            font-size: 16px;
+            color: #666;
+            width: 1030px;
+            line-height: 31px;
+            margin-top: 8px;
+        }
+    }
+}
+
+.carpic {
+    width: 1200px;
+    margin: 0 auto 50px auto;
+    &>.title {
+        border-bottom: 1px solid @baseLINE;
+        padding-left: 16px;
+        margin-bottom: 27px;
+        span {
+            font-size: 20px;
+            height: 48px;
+            line-height: 48px;
+            border-bottom: 3px solid @baseLINK;
+            display: inline-block;
+        }
+    }
+    .piclist {
+        padding: 0 16px;
+        width: 1168px;
+        ul {
+            width: 1208px;
+            overflow: hidden;
+            li {
+                float: left;
+                margin-right: 40px;
+                width: 564px;
+                height: 389px;
+                overflow: hidden;
+                margin-bottom: 40px;
+                img {
+                    width: 564px;
+                    height: 389px;
+                }
+            }
+        }
+    }
+}

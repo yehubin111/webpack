@@ -1,0 +1,105 @@
+@import './lib/common';
+.login {
+    width: 100%;
+    min-width: 1200px;
+    height: 100%;
+    background: url('../images/login-banner.jpg') center center no-repeat;
+    .con {
+        width: 1200px;
+        height: 650px;
+        margin: 0 auto;
+        position: relative;
+        .loginbox {
+            width: 300px;
+            height: 350px;
+            background-color: @baseBG;
+            border: 1px solid @baseLINE;
+            border-radius: @baseRADIUS;
+            position: absolute;
+            right: 30px;
+            top: 150px;
+            .title {
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                span {
+                    font-size: 16px;
+                    line-height: 40px;
+                    cursor: pointer;
+                    display: inline-block;
+                    border-bottom: 3px solid #fff;
+                    margin: 0 10px;
+                    &.on{
+                        border-bottom: 3px solid @baseLINK;
+                        color: @baseLINK;
+                    }
+                }
+            }
+            .box {
+                margin: 0 20px;
+                .loginput {
+                    margin-bottom: 20px;
+                    .name {
+                        line-height: 30px;
+                    }
+                    .input {
+                        height: 38px;
+                        border: 1px solid @baseLINE;
+                        overflow: hidden;
+                        border-radius: @baseRADIUS;
+                        input {
+                            width: 238px;
+                            padding: 0 10px;
+                            height: 38px;
+                            border: none;
+                        }
+                    }
+                    &.yzm{
+                        overflow: hidden;
+                        .name{
+                            width: 100%;
+                            float: left;
+                        }
+                        .input{
+                            float: left;
+                            margin-right: 10px;
+                            input{
+                                width: 128px;
+                            }
+                        }
+                        .getyzm{
+                            float: left;
+                            width: 98px;
+                            height: 38px;
+                            background-color: #fff;
+                            border: 1px solid @baseCOLOR;
+                            color: @baseCOLOR;
+                            text-align: center;
+                            line-height: 38px;
+                            border-radius: 4px;
+                        }
+                    }
+                }
+                .button{
+                    text-align: center;
+                    margin-top: 30px;
+                    span{
+                        width: 115px;
+                        height: 40px;
+                        border-radius: @baseRADIUS;
+                        background-color: @baseCOLOR;
+                        display: inline-block;
+                        line-height: 40px;
+                        text-align: center;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.foot{
+    text-align: center;
+    line-height: 40px;
+}

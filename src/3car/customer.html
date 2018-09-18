@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>客户管理</title>
+</head>
+
+<body>
+    <%= require('html-loader!./templates/common-header.html')  %>
+    <form action="" method="post" ref="form" target="_self" onsubmit="return false" name="allInfo" id="allInfo">
+        <div class="sort">
+            <div class="topline">
+                <div class="selectmodule">
+                    <p class="selecttitle">所在地：</p>
+                    <div class="selectline provinceselect" data-key="startyear" data-lang="#cityList1">
+                        <span class="info">选择省份</span>
+                        <i class="arrow-down arrow"></i>
+                        <input type="hidden" class="subinfo" name="province">
+                        <div class="provincelist" id="provinceList1">
+                        </div>
+                    </div>
+                    <div class="selectline cityselect" data-key="startyear">
+                        <span class="info">选择城市</span>
+                        <i class="arrow-down arrow"></i>
+                        <input type="hidden" class="subinfo" name="city">
+                        <div class="citylist" id="cityList1">
+                        </div>
+                    </div>
+                </div>
+                <div class="selectmodule">
+                    <p class="selecttitle">咨询车源：</p>
+                    <div class="selectline brandselect">
+                        <span class="info">选择品牌</span>
+                        <i class="arrow-down arrow"></i>
+                        <input type="hidden" class="subinfo" name="brandId">
+                        <div class="brandlist" id="brandList">
+                            <div class="listleft">
+                            </div>
+                            <div class="listleft">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="selectline typeselect">
+                        <span class="info">选择型号</span>
+                        <i class="arrow-down arrow"></i>
+                        <input type="hidden" class="subinfo" name="typeId">
+                        <div class="typelist" id="typeList">
+                        </div>
+                    </div>
+                </div>
+                <div class="inputmodule">
+                    <p class="selecttitle">手机号码：</p>
+                    <div class="inputline" closetype="mileage">
+                        <input type="text" name="phone" class="info" id="mileageInput" placeholder="请输入手机号码">
+                    </div>
+                </div>
+            </div>
+            <div class="topline">
+                <div class="timemodule">
+                    <p class="selecttitle">产生时间：</p>
+                    <div class="inputline" closetype="mileage">
+                        <input type="text" class="info" id="mileageInput" placeholder="起始时间">
+                    </div>
+                    <p class="intervalline">--</p>
+                    <div class="inputline" closetype="mileage">
+                        <input type="text" class="info" id="mileageInput" placeholder="结束时间">
+                    </div>
+                </div>
+                <div class="timemodule">
+                    <p class="selecttitle">跟进时间：</p>
+                    <div class="inputline" closetype="mileage">
+                        <input type="text" class="info" id="mileageInput" placeholder="起始时间">
+                    </div>
+                    <p class="intervalline">--</p>
+                    <div class="inputline" closetype="mileage">
+                        <input type="text" class="info" id="mileageInput" placeholder="结束时间">
+                    </div>
+                </div>
+                <div class="selectmodule single">
+                    <p class="selecttitle">客户来源：</p>
+                    <div class="selectline dateselect" data-key="startyear" closetype="date">
+                        <span class="info">选择客户来源</span>
+                        <i class="arrow-down arrow"></i>
+                        <div class="yeardown">
+                            <p>不限</p>
+                            <p>2018</p>
+                            <p>2017</p>
+                            <p>2016</p>
+                            <p>2015</p>
+                            <p>2014</p>
+                            <p>2013</p>
+                            <p>2012</p>
+                            <p>2011</p>
+                            <p>2010</p>
+                            <p>2009</p>
+                            <p>2008</p>
+                            <p>2007</p>
+                            <p>2006</p>
+                            <p>2005</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tocheck">
+                <span class="button" id="toPublic">查 找</span>
+            </div>
+        </div>
+    </form>
+    <div class="tab">
+        <ul class="left">
+            <li class="on">今日需跟进<span>66</span></li>
+            <li>本周需联系<span>66</span></li>
+            <li>全部意向<span>66</span></li>
+        </ul>
+        <a href="/3car/public.html" target="_blank" class="addcar">新增意向客户</a>
+        <ul class="grade">
+            <li>
+                <input type="checkbox" name="grade" checked id="gradeH">
+                <label for="gradeH">H级</label>
+            </li>
+            <li>
+                <input type="checkbox" name="grade" checked id="gradeA">
+                <label for="gradeA">A级</label>
+            </li>
+            <li>
+                <input type="checkbox" name="grade" checked id="gradeB">
+                <label for="gradeB">B级</label>
+            </li>
+            <li>
+                <input type="checkbox" name="grade" checked id="gradeC">
+                <label for="gradeC">C级</label>
+            </li>
+        </ul>
+    </div>
+    <div class="customlist">
+        <ul class="title">
+            <li class="date">日期</li>
+            <li class="from">客户来源</li>
+            <li class="info">客户信息</li>
+            <li class="date">联系人员</li>
+            <li class="car">意向车型</li>
+            <li class="record">
+                <span class="rname">跟进记录</span>
+                <p class="add">新增跟进记录</p>
+            </li>
+            <li class="status">状态</li>
+        </ul>
+        <script>
+            var carHTML = [
+                '{{#list}}',
+                '<tr class="custom">',
+                '<td class="date">{{date}}</td>',
+                '<td class="from">{{from}}</td>',
+                '<td class="info">',
+                '<p>{{customer}}</p>',
+                // '<p>18868899637</p>',
+                // '<p>黑龙江 哈尔滨</p>',
+                '</td>',
+                '<td class="date">{{worker}}</td>',
+                '<td class="car">{{car_type}}</td>',
+                '<td class="record">',
+                '<div class="rlist">',
+                '<p class="datename">2018-08-22 方一安</p>',
+                '<p class="desc">今天那人说想买辆车今天那人说想买辆车今天那人说想买辆车</p>',
+                '<p class="dot"></p>',
+                '</div>',
+                '</td>',
+                '<td class="status">{{state}}</td>',
+                '</tr>',
+                '{{/list}}'
+            ].join('');
+        </script>
+        <table class="customall" id="customAll">
+            <!-- <tbody class="custom"> -->
+
+            <!-- <tr class="custom">
+                <td class="date">2018-09-12</td>
+                <td class="from">华夏二手车网</td>
+                <td class="info">
+                    <p>王大力</p>
+                    <p>18868899637</p>
+                    <p>黑龙江 哈尔滨</p>
+                </td>
+                <td class="date">周润发</td>
+                <td class="car">2018 丰田 汉兰达</td>
+                <td class="record">
+                    <div class="rlist">
+                        <p class="datename">2018-08-22 方一安</p>
+                        <p class="desc">今天那人说想买辆车今天那人说想买辆车今天那人说想买辆车</p>
+                        <p class="dot"></p>
+                    </div>
+                </td>
+                <td class="status">战败</td>
+            </tr> -->
+        </table>
+    </div>
+    <div class="carSwitch" id="carSwitch"></div>
+    <script type="text/javascript" src="/common/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/common/js/mustache.js"></script>
+    <!-- <script type="text/javascript" src="http://s.thsi.cn/cb?js/;ijijin/fundClientPC/js/;mustache.min.js"></script> -->
+    <!-- <script type="text/javascript" src="../common/js/mustache.js"></script> -->
+</body>
+
+</html>

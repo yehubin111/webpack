@@ -1,0 +1,504 @@
+@import 'lib/common-header';
+@baseImgUrl: '../images/';
+.uploadimg {
+    width: 1200px;
+    margin: 27px auto 0 auto;
+    .title {
+        padding-left: 16px;
+        span {
+            &.imp {
+                display: inline-block;
+                line-height: 57px;
+                font-size: 20px;
+                border-bottom: 3px solid @baseLINK;
+                margin-right: 15px;
+            }
+            &.tell {
+                line-height: 57px;
+                font-size: 14px;
+                color: #666;
+                display: inline-block;
+            }
+        }
+    }
+    .uploadbox {
+        width: 1178px;
+        background-color: @baseBG;
+        border: 1px solid @baseLINE;
+        border-radius: @baseRADIUS;
+        padding: 20px 0 0 20px;
+        overflow: hidden;
+        .uploadmethod {
+            float: left;
+            width: 148px;
+            height: 148px;
+            border: 1px dashed @baseLINK;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            background-color: #f9fbfd;
+            position: relative;
+            p {
+                text-align: center;
+                span {
+                    width: 100px;
+                    height: 32px;
+                    border-radius: 3px;
+                    text-align: center;
+                    line-height: 32px;
+                    display: inline-block;
+                    cursor: pointer;
+                    &.uploadbutton {
+                        background-color: #cfdefd;
+                        margin-bottom: 15px;
+                        margin-top: 32px;
+                    }
+                    &.uploading {
+                        position: absolute;
+                        top: 32px;
+                        left: 50%;
+                        margin-left: -50px;
+                        z-index: 9;
+                        overflow: hidden;
+                        i {
+                            width: 100%;
+                            height: 32px;
+                            display: block;
+                            background-color: @baseLINK;
+                        }
+                    }
+                    &.uploadstatus {
+                        position: absolute;
+                        top: 32px;
+                        left: 50%;
+                        margin-left: -50px;
+                        color: #fff;
+                        z-index: 10;
+                    }
+                    &.wxupload {
+                        color: #666;
+                        background-color: #fff;
+                        width: 98px;
+                        height: 30px;
+                        border: 1px solid @baseLINE;
+                    }
+                }
+                .fileupload {
+                    background-color: red;
+                    width: 100px;
+                    height: 32px;
+                    position: absolute;
+                    top: 32px;
+                    left: 50%;
+                    margin-left: -50px;
+                    opacity: 0;
+                    cursor: pointer;
+                    z-index: 20;
+                }
+            }
+        }
+        .uploadpic {
+            li {
+                float: left;
+                width: 148px;
+                height: 148px;
+                overflow: hidden;
+                border: 1px solid @baseLINE;
+                margin-right: 18px;
+                margin-bottom: 18px;
+                border-radius: 4px;
+                img {
+                    width: 148px;
+                }
+            }
+        }
+        .ewm {
+            width: 148px;
+            height: 148px;
+            border: 1px solid @baseLINE;
+            position: absolute;
+            top: -1px;
+            left: 160px;
+            border-radius: 3px;
+            display: none;
+            background: url('@{baseImgUrl}ewm.jpg') center center no-repeat;
+            img {
+                margin: 10px 0 0 10px;
+                width: 128px;
+                height: 128px;
+                display: block;
+            }
+        }
+    }
+}
+
+.baseinfo {
+    width: 1200px;
+    margin: 27px auto 0 auto;
+    .title {
+        padding-left: 16px;
+        span {
+            &.imp {
+                display: inline-block;
+                line-height: 57px;
+                font-size: 20px;
+                border-bottom: 3px solid @baseLINK;
+                margin-right: 15px;
+            }
+            &.tell {
+                line-height: 57px;
+                font-size: 14px;
+                color: #666;
+                display: inline-block;
+                i {
+                    color: @baseCOLOR;
+                }
+            }
+        }
+    }
+    .baseform {
+        width: 1198px;
+        background-color: @baseBG;
+        border: 1px solid @baseLINE;
+        border-radius: @baseRADIUS;
+        padding-top: 50px;
+        .formleft {
+            float: left;
+            padding-left: 50px;
+            margin-right: 50px;
+            .radio {
+                margin-bottom: 25px;
+                height: 40px;
+                .tl {
+                    float: left;
+                    width: 85px;
+                    height: 40px;
+                    line-height: 40px;
+                }
+                .tr {
+                    float: left;
+                    width: 300px;
+                    height: 40px;
+                    line-height: 40px;
+                    overflow: hidden;
+                    padding-left: 10px;
+                    input {
+                        margin-right: 8px;
+                        float: left;
+                        margin-top: 13px;
+                    }
+                    label {
+                        margin-right: 25px;
+                        float: left;
+                    }
+                }
+            }
+            .input {
+                margin-bottom: 25px;
+                height: 40px;
+                .tl {
+                    float: left;
+                    width: 85px;
+                    height: 40px;
+                    line-height: 40px;
+                }
+                .tr {
+                    float: left;
+                    width: 310px;
+                    height: 40px;
+                    overflow: hidden;
+                    .inputbox {
+                        width: 308px;
+                        height: 38px;
+                        border: 1px solid @baseLINE;
+                        background-color: #fff;
+                        input {
+                            width: 288;
+                            height: 100%;
+                            border: none;
+                            padding: 0 10px;
+                        }
+                    }
+                }
+                &.unitinput {
+                    .tr {
+                        .inputbox {
+                            width: 138px;
+                            float: left;
+                            margin-right: 10px;
+                            input {
+                                width: 118px;
+                            }
+                        }
+                        .unit {
+                            line-height: 40px;
+                            float: left;
+                        }
+                    }
+                }
+            }
+            .select {
+                margin-bottom: 25px;
+                height: 40px;
+                .tl {
+                    float: left;
+                    width: 85px;
+                    height: 40px;
+                    line-height: 40px;
+                }
+                .tr {
+                    float: left;
+                    width: 310px;
+                    height: 40px;
+                    .selectbox {
+                        width: 148px;
+                        height: 38px;
+                        border: 1px solid @baseLINE;
+                        position: relative;
+                        float: left;
+                        background-color: #fff;
+                        .choice {
+                            color: #999;
+                            line-height: 38px;
+                            padding: 0 20px 0 10px;
+                            height: 38px;
+                            display: block;
+                            overflow: hidden;
+                        }
+                        .arrow {
+                            position: absolute;
+                            right: 10px;
+                            top: 18px;
+                        }
+                        &.leftselect {
+                            margin-right: 10px;
+                        }
+                        .serieslist, .provincelist, .citylist {
+                            width: 400px;
+                            background-color: #fff;
+                            position: absolute;
+                            top: 39px;
+                            z-index: 1;
+                            left: -1px;
+                            box-shadow: 0 3px 10px -2px rgba(0, 0, 0, .38);
+                            overflow: hidden;
+                            padding: 20px 0 0 0;
+                            display: none;
+                            dl {
+                                overflow: hidden;
+                                padding-left: 60px;
+                                position: relative;
+                                margin-bottom: 20px;
+                                dt {
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                    color: @baseCOLOR;
+                                    position: absolute;
+                                    left: 20px;
+                                    line-height: 24px;
+                                    word-break: break-word;
+                                    width: 46px;
+                                }
+                                dd {
+                                    float: left;
+                                    font-size: 12px;
+                                    color: #333;
+                                    padding: 0 10px;
+                                    line-height: 24px;
+                                    cursor: pointer;
+                                    margin-right: 10px;
+                                    &:hover {
+                                        color: @baseCOLOR;
+                                    }
+                                }
+                            }
+                        }
+                        .typelist {
+                            width: 400px;
+                            background-color: #fff;
+                            position: absolute;
+                            top: 39px;
+                            z-index: 1;
+                            left: -1px;
+                            box-shadow: 0 3px 10px -2px rgba(0, 0, 0, .38);
+                            overflow: hidden;
+                            padding: 20px 0 0 0;
+                            display: none;
+                            dl {
+                                overflow: hidden;
+                                padding-left: 105px;
+                                position: relative;
+                                margin-bottom: 20px;
+                                dt {
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                    color: @baseCOLOR;
+                                    position: absolute;
+                                    left: 20px;
+                                    line-height: 24px;
+                                }
+                                dd {
+                                    float: left;
+                                    font-size: 12px;
+                                    color: #333;
+                                    padding: 0 10px;
+                                    line-height: 24px;
+                                    cursor: pointer;
+                                    margin-right: 10px;
+                                    &:hover {
+                                        color: @baseCOLOR;
+                                    }
+                                }
+                            }
+                        }
+                        .brandlist {
+                            width: 800px;
+                            background-color: #fff;
+                            position: absolute;
+                            top: 39px;
+                            z-index: 1;
+                            left: -1px;
+                            box-shadow: 0 3px 10px -2px rgba(0, 0, 0, .38);
+                            overflow: hidden;
+                            padding: 20px 0 0 0;
+                            display: none;
+                            .listleft {
+                                float: left;
+                                width: 370px;
+                                padding-left: 30px;
+                                dl {
+                                    overflow: hidden;
+                                    padding-left: 20px;
+                                    position: relative;
+                                    margin-bottom: 20px;
+                                    dt {
+                                        font-size: 14px;
+                                        font-weight: bold;
+                                        color: @baseCOLOR;
+                                        position: absolute;
+                                        left: 0;
+                                        line-height: 24px;
+                                    }
+                                    dd {
+                                        float: left;
+                                        font-size: 12px;
+                                        color: #333;
+                                        padding: 0 10px;
+                                        line-height: 24px;
+                                        cursor: pointer;
+                                        margin-right: 10px;
+                                        &:hover {
+                                            color: @baseCOLOR;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .downselect {
+                            box-shadow: 0 3px 10px -2px rgba(0, 0, 0, .38);
+                            background-color: #fff;
+                            position: absolute;
+                            top: 39px;
+                            left: -1px; // display: none;
+                            z-index: 1;
+                            width: 100%;
+                            li {
+                                line-height: 30px;
+                                padding-left: 10px;
+                                cursor: pointer;
+                                &:hover {
+                                    background-color: @baseHOVER;
+                                    color: @baseCOLOR;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.double {
+                    .tr {
+                        .selectbox {
+                            width: 148px;
+                        }
+                    }
+                }
+                &.third {
+                    .tr {
+                        .selectbox {
+                            width: 98px;
+                            &.leftselect {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+                &.single {
+                    .tr {
+                        .selectbox {
+                            width: 308px;
+                        }
+                    }
+                }
+            }
+            .important {
+                position: relative;
+                &>i {
+                    color: #f44446;
+                    position: absolute;
+                    line-height: 40px;
+                    left: -10px;
+                    top: 0;
+                }
+            }
+        }
+        .cardetail {
+            overflow: hidden;
+            float: left;
+            padding-left: 50px;
+            margin-bottom: 50px;
+            .tl {
+                float: left;
+                width: 85px;
+                height: 40px;
+                line-height: 40px;
+            }
+            .tr {
+                float: left;
+                .textareabox {
+                    border: 1px solid @baseLINE;
+                    width: 650px;
+                    height: 150px;
+                    background-color: #fff;
+                    .detaildesc {
+                        width: 630px;
+                        height: 150px;
+                        max-width: 630px;
+                        max-height: 150px;
+                        border: none;
+                        line-height: 40px;
+                        padding: 0 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.priceinfo {
+    margin-bottom: 50px;
+}
+
+.submit {
+    text-align: center;
+    margin-bottom: 100px;
+    input {
+        width: 114px;
+        height: 40px;
+        background-color: @baseCOLOR;
+        border: none;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 3px;
+        display: inline-block;
+        cursor: pointer;
+    }
+}

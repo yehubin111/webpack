@@ -11,15 +11,22 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin'); // 按照entry
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 编译之前先删除文件夹
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin'); // 压缩css，解决多个js调用同一个css重复问题
 // const es3ifyPlugin = require('es3ify-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const getEntry = (pattern) => {
     let entry = {};
     let pth = path.resolve(__dirname, '../src');
 
     glob.sync(pattern).forEach((v, i) => {
-        let filename = path.relative(pth, v).split('.')[0].replace(/\\/g, '/');
-
-        entry[filename] = v;
+        // let filename = path.relative(pth, v).split('.')[0].replace(/\\/g, '/');
+        let filename = path.relative(pth, v).replace(/\.js$/, '').replace(/\\/g, '/');
+        // 非不编译common文件夹下的js
+        if (process.env.NODE_ENV === 'development')
+            entry[filename] = v;
+        else {
+            if (filename.indexOf('common') != 0)
+                entry[filename] = v;
+        }
     });
 
     return entry;
@@ -27,6 +34,7 @@ const getEntry = (pattern) => {
 
 const webpackConfig = {
     entry: getEntry(path.resolve(__dirname, '../src/*/js/*.js')),
+    // entry: getEntry(path.resolve(__dirname, '../', /src\/[^common]\/js\/*\.js/)),
     output: {
         path: path.resolve(__dirname, '../dist'),
         publicPath: _path[process.env.NODE_ENV].publicPath,
@@ -37,7 +45,8 @@ const webpackConfig = {
         : '',
     devServer: {
         contentBase: "./dist", //本地服务器所加载的页面所在的目录
-        port: '1001',
+        port: '8001',
+        host: 'localhost',
         historyApiFallback: true, //不跳转
         inline: true, //实时刷新
         open: true,
@@ -56,7 +65,7 @@ const webpackConfig = {
                 use: {
                     loader: "babel-loader"
                 },
-                exclude: /node_modules/
+                exclude: [/node_modules/]
             },
             {
                 test: /(\.less|\.css)$/,
@@ -73,7 +82,7 @@ const webpackConfig = {
                 test: /(\.jpg|\.png|\.gif|\.jpeg)$/,
                 loader: 'url-loader',
                 query: {
-                    limit: '8192',
+                    limit: '100',
                     name: 'images/[name].[ext]?[hash:8]' // 转base64 小于 8kb
                 }
             }
@@ -107,6 +116,24 @@ const webpackConfig = {
 
 module.exports = webpackConfig;
 
+// 测试环境
+if (process.env.NODE_ENV === 'testing') {
+    // 打包前先清空
+    module.exports.plugins.push(
+        new CleanWebpackPlugin(['./dist'], {
+            root: path.resolve(__dirname, '../')
+        })
+    );
+    // 复制common文件夹
+    module.exports.plugins.push(
+        new CopyWebpackPlugin([
+            {
+                from: path.resolve(__dirname, '../src/common/js'),
+                to: path.resolve(__dirname, '../dist/common/js')
+            }
+        ])
+    );
+}
 // 生产环境下
 if (process.env.NODE_ENV === 'production') {
     // js压缩
@@ -132,6 +159,15 @@ if (process.env.NODE_ENV === 'production') {
         new CleanWebpackPlugin(['./dist'], {
             root: path.resolve(__dirname, '../')
         })
+    );
+    // 复制common文件夹
+    module.exports.plugins.push(
+        new CopyWebpackPlugin([
+            {
+                from: path.resolve(__dirname, '../src/common/js/*.js'),
+                to: path.resolve(__dirname, '../dist/common/js')
+            }
+        ])
     );
 }
 

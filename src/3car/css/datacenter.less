@@ -1,0 +1,225 @@
+@import 'lib/common-header';
+.inventory {
+    width: 1200px;
+    margin: 27px auto 0 auto;
+    .title {
+        font-size: 20px;
+        padding-left: 16px;
+        span {
+            display: inline-block;
+            line-height: 57px;
+            border-bottom: 3px solid @baseLINK;
+        }
+    }
+    .ibox {
+        width: 1198px;
+        height: 260px;
+        border: 1px solid @baseLINE;
+        background-color: @baseBG;
+        border-radius: @baseRADIUS;
+        overflow: hidden;
+        .ivmodule {
+            float: left;
+            width: 25%;
+            .ititle {
+                font-size: 16px;
+                margin-top: 45px;
+                margin-bottom: 50px;
+                margin-left: 45px;
+            }
+            .icar {
+                color: #999;
+                margin-bottom: 10px;
+                margin-left: 45px;
+                span {
+                    font-size: 39px;
+                    color: @baseCOLOR;
+                    margin-left: 8px;
+                }
+            }
+            .ilast {
+                color: #999;
+                margin-left: 45px;
+                span {
+                    color: #333;
+                }
+            }
+        }
+    }
+}
+
+.datalist {
+    width: 1200px;
+    margin: 27px auto 0 auto;
+    .title {
+        font-size: 20px;
+        padding-left: 16px;
+        span {
+            display: inline-block;
+            line-height: 57px;
+            border-bottom: 3px solid @baseLINK;
+        }
+    }
+    .dataall {
+        overflow: hidden;
+        .dialog {
+            float: left;
+            width: 343px;
+            height: 403px;
+            margin-right: 20px;
+            border: 1px solid @baseLINE;
+            background-color: @baseBG;
+            border-radius: @baseRADIUS;
+            .dialogdata {
+                margin: 20px 20px 0 20px;
+                border: 1px solid @baseLINE;
+                height: 361px;
+                background-color: #fff;
+                .nav {
+                    height: 38px;
+                    border-bottom: 1px solid @baseLINE;
+                    background-color: @baseBG;
+                    li {
+                        line-height: 38px;
+                        &.name {
+                            width: 150px;
+                            float: left;
+                            display: block;
+                            height: 38px;
+                        }
+                        &.click {
+                            width: 82px;
+                            float: left;
+                        }
+                        &.sell {
+                            float: left;
+                        }
+                    }
+                }
+                .data {
+                    height: 38px;
+                    border-bottom: 1px solid @baseLINE;
+                    background-color: #fff;
+                    li {
+                        line-height: 38px;
+                        &.name {
+                            width: 140px;
+                            float: left;
+                            display: block;
+                            height: 38px;
+                            padding-left: 10px;
+                        }
+                        &.click {
+                            width: 82px;
+                            float: left;
+                        }
+                        &.sell {
+                            float: left;
+                        }
+                    }
+                }
+            }
+        }
+        .datachart {
+            float: left;
+            width: 833px;
+            height: 403px;
+            border: 1px solid @baseLINE;
+            background-color: @baseBG;
+            border-radius: @baseRADIUS;
+            .daytab {
+                overflow: hidden;
+                margin: 20px 20px 20px 0;
+                ul {
+                    overflow: hidden;
+                    border: 1px solid @baseLINE;
+                    border-right: none;
+                    float: right;
+                    li {
+                        float: left;
+                        width: 72px;
+                        text-align: center;
+                        height: 28px;
+                        line-height: 28px;
+                        border-right: 1px solid @baseLINE;
+                        &.on {
+                            color: @baseCOLOR;
+                        }
+                    }
+                }
+            }
+            .chart {
+                margin: 0 20px 0 20px;
+                height: 311px;
+                border: 1px solid @baseLINE;
+            }
+        }
+    }
+}
+
+.clue {
+    width: 1200px;
+    margin: 27px auto 50px auto;
+    .title {
+        font-size: 20px;
+        padding-left: 16px;
+        span {
+            display: inline-block;
+            line-height: 57px;
+            border-bottom: 3px solid @baseLINK;
+        }
+    }
+    .cluedialog {
+        width: 1198px;
+        height: 303px;
+        border: 1px solid @baseLINE;
+        background-color: @baseBG;
+        border-radius: @baseRADIUS;
+        overflow: hidden;
+        .dialog {
+            margin: 20px 20px 0 20px;
+            border: 1px solid @baseLINE;
+            height: 261px;
+            background-color: #fff;
+            .nav {
+                height: 38px;
+                border-bottom: 1px solid @baseLINE;
+                background-color: @baseBG;
+                li {
+                    line-height: 38px;
+                    &.name {
+                        width: 150px;
+                        float: left;
+                        display: block;
+                        height: 38px;
+                    }
+                    &.other{
+                        float: left;
+                        height: 38px;
+                        width: 167px;
+                    }
+                }
+            }
+            .line {
+                height: 38px;
+                border-bottom: 1px solid @baseLINE;
+                background-color: #fff;
+                li {
+                    line-height: 38px;
+                    &.name {
+                        width: 140px;
+                        float: left;
+                        display: block;
+                        height: 38px;
+                        padding-left: 10px;
+                    }
+                    &.other{
+                        float: left;
+                        height: 38px;
+                        width: 167px;
+                    }
+                }
+            }
+        }
+    }
+}
